@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/asbier-lab/am-studio/static/css/main.3b8850d7.css",
+    "main.js": "/asbier-lab/am-studio/static/js/main.e60f0fa0.js",
+    "static/js/488.c0e18853.chunk.js": "/asbier-lab/am-studio/static/js/488.c0e18853.chunk.js",
+    "static/media/flower_c.gif": "/asbier-lab/am-studio/static/media/flower_c.a85ab325275a7c111187.gif",
+    "static/media/mission.jpg": "/asbier-lab/am-studio/static/media/mission.ddc8f113ec6df5f7c757.jpg",
+    "static/media/OTNeueMontreal-MediumExtraSqueezed.otf": "/asbier-lab/am-studio/static/media/OTNeueMontreal-MediumExtraSqueezed.ae1b12be97405f124836.otf",
+    "index.html": "/asbier-lab/am-studio/index.html",
+    "main.3b8850d7.css.map": "/asbier-lab/am-studio/static/css/main.3b8850d7.css.map",
+    "main.e60f0fa0.js.map": "/asbier-lab/am-studio/static/js/main.e60f0fa0.js.map",
+    "488.c0e18853.chunk.js.map": "/asbier-lab/am-studio/static/js/488.c0e18853.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b8850d7.css",
+    "static/js/main.e60f0fa0.js"
+  ]
+}
