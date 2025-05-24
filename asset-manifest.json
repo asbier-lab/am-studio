@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/am-studio/static/css/main.f66e60e3.css",
-    "main.js": "/am-studio/static/js/main.92f8b4b0.js",
+    "main.css": "/am-studio/static/css/main.37df4dea.css",
+    "main.js": "/am-studio/static/js/main.629e170a.js",
     "static/js/488.c0e18853.chunk.js": "/am-studio/static/js/488.c0e18853.chunk.js",
     "static/media/flower_c.gif": "/am-studio/static/media/flower_c.a85ab325275a7c111187.gif",
     "static/media/bigImage.png": "/am-studio/static/media/bigImage.c7598d08154393f4d43f.png",
@@ -13,12 +13,12 @@
     "static/media/OTNeueMontreal-ThinSemiSqueezed.otf": "/am-studio/static/media/OTNeueMontreal-ThinSemiSqueezed.06fb31312bb6a9bebb6f.otf",
     "static/media/OTNeueMontreal-BookUltraSqueezed.otf": "/am-studio/static/media/OTNeueMontreal-BookUltraSqueezed.73cb569a6ba3e39045f9.otf",
     "index.html": "/am-studio/index.html",
-    "main.f66e60e3.css.map": "/am-studio/static/css/main.f66e60e3.css.map",
-    "main.92f8b4b0.js.map": "/am-studio/static/js/main.92f8b4b0.js.map",
+    "main.37df4dea.css.map": "/am-studio/static/css/main.37df4dea.css.map",
+    "main.629e170a.js.map": "/am-studio/static/js/main.629e170a.js.map",
     "488.c0e18853.chunk.js.map": "/am-studio/static/js/488.c0e18853.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f66e60e3.css",
-    "static/js/main.92f8b4b0.js"
+    "static/css/main.37df4dea.css",
+    "static/js/main.629e170a.js"
   ]
 }
