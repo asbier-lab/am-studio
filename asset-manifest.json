@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/am-studio/static/css/main.cac5d3e6.css",
-    "main.js": "/am-studio/static/js/main.7ee4dadb.js",
+    "main.css": "/am-studio/static/css/main.66e24e7e.css",
+    "main.js": "/am-studio/static/js/main.5234842c.js",
     "static/js/488.c0e18853.chunk.js": "/am-studio/static/js/488.c0e18853.chunk.js",
     "static/media/flower_c.gif": "/am-studio/static/media/flower_c.a85ab325275a7c111187.gif",
-    "static/media/bigImage.png": "/am-studio/static/media/bigImage.c7598d08154393f4d43f.png",
+    "static/media/person2.png": "/am-studio/static/media/person2.5ea81df1270b8aebc600.png",
     "static/media/kopf.png": "/am-studio/static/media/kopf.039a9f9bfd4e5672d308.png",
-    "static/media/smallImage.png": "/am-studio/static/media/smallImage.ef97d93634a711376d20.png",
+    "static/media/person1.png": "/am-studio/static/media/person1.ef97d93634a711376d20.png",
     "static/media/mission.jpg": "/am-studio/static/media/mission.ddc8f113ec6df5f7c757.jpg",
+    "static/media/paddle.png": "/am-studio/static/media/paddle.c600e9d3bfcef456c4d5.png",
     "static/media/OTNeueMontreal-SemiBoldExtraSqueezed.otf": "/am-studio/static/media/OTNeueMontreal-SemiBoldExtraSqueezed.ef52a3b14579c89b472b.otf",
     "static/media/OTNeueMontreal-MediumExtraSqueezed.otf": "/am-studio/static/media/OTNeueMontreal-MediumExtraSqueezed.ae1b12be97405f124836.otf",
     "static/media/OTNeueMontreal-MediumUltraSqueezed.otf": "/am-studio/static/media/OTNeueMontreal-MediumUltraSqueezed.0d1ecd078627af27f82c.otf",
@@ -15,13 +16,14 @@
     "static/media/OTNeueMontreal-BookUltraSqueezed.otf": "/am-studio/static/media/OTNeueMontreal-BookUltraSqueezed.73cb569a6ba3e39045f9.otf",
     "static/media/yasmin.png": "/am-studio/static/media/yasmin.0b6d27be31f763fe3273.png",
     "static/media/scent.png": "/am-studio/static/media/scent.cae23854d503749c3bcd.png",
+    "static/media/muschele.png": "/am-studio/static/media/muschele.84442618728296ae7eba.png",
     "index.html": "/am-studio/index.html",
-    "main.cac5d3e6.css.map": "/am-studio/static/css/main.cac5d3e6.css.map",
-    "main.7ee4dadb.js.map": "/am-studio/static/js/main.7ee4dadb.js.map",
+    "main.66e24e7e.css.map": "/am-studio/static/css/main.66e24e7e.css.map",
+    "main.5234842c.js.map": "/am-studio/static/js/main.5234842c.js.map",
     "488.c0e18853.chunk.js.map": "/am-studio/static/js/488.c0e18853.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cac5d3e6.css",
-    "static/js/main.7ee4dadb.js"
+    "static/css/main.66e24e7e.css",
+    "static/js/main.5234842c.js"
   ]
 }
