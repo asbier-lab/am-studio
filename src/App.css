@@ -52,6 +52,7 @@ body, html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   margin-bottom: 0rem;
+  cursor: none; /* Versteckt den Standard-Cursor */
 }
 
 @keyframes tinkerbellShift {
@@ -95,10 +96,28 @@ h1 {
   font-size: 2rem;
   font-weight: 600; /* SemiBold */
   margin-top: 0.0rem;
-  margin-bottom:0rem;
+  margin-bottom: 0rem;
   margin-left: 0.5rem;
+  position: relative;
 }
 
+/* Tagline Styling */
+.tagline {
+  font-style: italic;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: rgba(18, 18, 18, 0.3);
+  margin-top: -0.5rem;
+  margin-left: 0.5rem;
+  -webkit-user-select: none;
+  user-select: none;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+  transform: translateY(-0.5rem);
+  transition: opacity 0.5s ease-in-out;
+  min-height: 2rem;
+}
 
 p, h3 {
   font-weight: 100; /* Medium */
@@ -288,4 +307,28 @@ nav ul li a:hover {
     font-size: 3rem;
     line-height: 2.5rem;
   }
+}
+
+/* Benutzerdefinierter Cursor */
+.custom-cursor {
+  width: 32px;
+  height: 32px;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: all 0.1s ease;
+  background-image: url('./assets/yasmin.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Cursor-Effekt beim Hover über interaktive Elemente */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+[role="button"]:hover ~ .custom-cursor,
+input:hover ~ .custom-cursor,
+select:hover ~ .custom-cursor,
+textarea:hover ~ .custom-cursor {
+  transform: scale(1.5);
 }

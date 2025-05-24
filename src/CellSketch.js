@@ -90,10 +90,30 @@ p.pop();
         }
 
         update() {
+          // Bewegung mit Bounce-Effekt
           this.x += this.driftX;
           this.y += this.driftY;
           this.rotation += this.rotSpeed;
 
+          // Bounce am rechten und linken Rand
+          if (this.x + this.size/2 > p.width) {
+            this.x = p.width - this.size/2;
+            this.driftX *= -1;
+          } else if (this.x - this.size/2 < 0) {
+            this.x = this.size/2;
+            this.driftX *= -1;
+          }
+
+          // Bounce am oberen und unteren Rand
+          if (this.y + this.size/2 > p.height) {
+            this.y = p.height - this.size/2;
+            this.driftY *= -1;
+          } else if (this.y - this.size/2 < 0) {
+            this.y = this.size/2;
+            this.driftY *= -1;
+          }
+
+          // Mausinteraktion
           let d = p.dist(this.x, this.y, p.mouseX, p.mouseY);
           if (d < 100) {
             let angle = p.atan2(this.y - p.mouseY, this.x - p.mouseX);

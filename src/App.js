@@ -6,6 +6,7 @@ import RotatingTagline from './RotatingTagline';
 import Lineup from './line-up';
 import FloatingDialogue from './floatingDialogue';
 import PeoplePage from './PeoplePage';
+import CustomCursor from './CustomCursor';
 
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
   return (
     <Router basename={isProd ? "/am-studio" : "/"}>
       <CellSketch /> {/* Background Sketch */}
+      <CustomCursor /> {/* Custom Cursor */}
 
       <div className="App">
         <header>

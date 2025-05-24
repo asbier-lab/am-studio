@@ -33,17 +33,9 @@ const RotatingTagline = ({ interval = 4000 }) => {
 
   return (
     <p
+      className="tagline"
       style={{
-        opacity: fade ? 1 : 0,
-        transition: 'opacity 0.5s ease-in-out',
-        fontStyle: 'italic',
-        fontWeight: '800',
-        fontSize: '1.8rem',
-        color: '#1212',
-        marginTop: '0rem',
-        minHeight: '0rem',
-        userSelect: 'none',
-        textAlign: 'left',
+        opacity: fade ? 1 : 0
       }}
       aria-live="polite"
     >
