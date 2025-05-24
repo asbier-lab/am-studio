@@ -1,0 +1,10 @@
+/* index.css - Nur globale Stile, ohne Überschneidungen mit App.css */
+body {
+  margin: 0; /* Entfernt den Standardabstand, um keine Konflikte zu verursachen */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}

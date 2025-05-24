@@ -1,0 +1,291 @@
+@font-face {
+  font-family: 'OTNeueMontreal';
+  src: url('./fonts/OTNeueMontreal-ThinSemiSqueezed.otf') format('opentype');
+  font-weight: 100; /* thin */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OTNeueMontreal';
+  src: url('./fonts/OTNeueMontreal-BookUltraSqueezed.otf') format('opentype');
+  font-weight: 300; /* book / light */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OTNeueMontreal';
+  src: url('./fonts/OTNeueMontreal-MediumExtraSqueezed.otf') format('opentype');
+  font-weight: 500; /* medium */
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OTNeueMontreal';
+  src: url('./fonts/OTNeueMontreal-MediumUltraSqueezed.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OTNeueMontreal';
+  src: url('./fonts/OTNeueMontreal-SemiBoldExtraSqueezed.otf') format('opentype');
+  font-weight: 600; /* semibold */
+  font-style: normal;
+  font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+/* App.css */
+body, html {
+  margin: 0;
+  height: 100%;
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-weight: 300;
+  background: linear-gradient(-45deg, #d4ffef, #f4e1f2, #e0fbd4, #fdeacc);
+  background-size: 400% 400%;
+  animation: tinkerbellShift 20s ease infinite;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  margin-bottom: 0rem;
+}
+
+@keyframes tinkerbellShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+::selection {
+  background: #fd5d00; /* z.B. ein warmes Gelb */
+  color: rgb(53, 53, 53);
+}
+a {
+  cursor: pointer;
+}
+
+.sketch-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* verhindert, dass der Canvas Klicks abfängt */
+}
+
+/* Haupt-App Container (Content) */
+.App {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600; /* SemiBold */
+  margin-top: 0.0rem;
+  margin-bottom:0rem;
+  margin-left: 0.5rem;
+}
+
+
+p, h3 {
+  font-weight: 100; /* Medium */
+  margin-top: 0.0rem;
+  margin-bottom: 0.0rem;
+  margin-left: 0.5rem;}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 2rem;
+  margin-bottom: 0.3rem;
+}
+
+nav ul li a {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 100; /* dünn */
+  font-size: 0.4rem;
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  margin-left: 0.5rem;
+}
+
+nav ul li a:hover {
+  color: rgb(0, 255, 0);
+}
+
+
+.line-up {
+  padding: 0rem;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  color: #515151;
+  font-family: 'OTNeueMontreal', sans-serif;
+  background-color: #008844; /* Für Sichtbarkeit */
+  min-height: 300px;
+}
+
+.line-up h2 {
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 1.4;
+  margin-bottom: 0rem;
+  margin-left: 0.5rem;
+}
+
+.line-up-empty {
+  font-size: 1.2rem;
+  color: #888;
+  font-style: italic;
+}
+/* Mission Page */
+.mission-container {
+  font-family: 'OTNeueMontreal-MediumExtraSqueezed', sans-serif;
+  letter-spacing: 0.1em;
+  color: rgb(81, 253, 50);
+  margin: 0px; /* gleicht das Padding aus */
+  width: calc(100% + 40px); /* 20px links + rechts */
+
+  /* Neu: Zentrierung */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem; /* Abstand zwischen Text und Bild */
+  padding:0;
+}
+
+
+.mission-container h2 {
+  font-weight: 400;
+  font-size: 6rem;
+  line-height: 4.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+
+.mission-image {
+  width: 100%;   /* Volle Breite des Viewports */
+  height: 100%;  /* volle Höhe des Viewports, wenn gewünscht */
+  object-fit: cover; /* Damit das Bild nicht verzerrt wird */
+  margin: 0;
+  padding: 0;
+  display: block;  /* Vermeidet zusätzlichen Abstand */
+}
+
+.mission-container p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.mission-container .subtle {
+  color: gray;
+  font-weight: 300;
+}
+
+/* Content */
+.content {
+  margin-top: 0;
+  padding: 0;
+  font-size: 3rem;
+  height: 100vh;
+  overflow: hidden;
+}
+.people-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;       /* Margin rausnehmen */
+  padding: 0;      /* Padding rausnehmen */
+  box-sizing: border-box;
+}
+
+.people-image-big {
+  width: 60vw;        /* Adjust as needed */
+  height: 100vh;      /* Full height */
+  object-fit: cover;  /* Keeps aspect ratio, fills box */
+}
+
+.people-image-small {
+  width: 30vw;
+  height: auto;
+  align-self: center;
+  transform: scale(0.5); /* Makes it 50% smaller for contrast */
+}
+
+.left-image, .right-content {
+  width: 50vw;
+  height: 100vh;
+}
+
+.left-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.right-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9; /* or any contrast you like */
+}
+
+.small-image-wrapper {
+  width: 10rem; /* Scaled image */
+  max-width: 90%;
+}
+
+.small-image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+@media (max-width: 768px) {
+  .mission-container {
+    font-size: 3.5rem;
+  }
+
+  .mission-container h2 {
+    font-size: 4.4rem;
+      line-height: 0rem;
+
+  }
+}
+
+@media (max-width: 480px) {
+  .mission-container {
+    font-size: 2.5rem;
+  }
+
+  .mission-container h2 {
+    font-size: 3rem;
+    line-height: 2.5rem;
+  }
+}
