@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/am-studio/static/css/main.ad895711.css",
-    "main.js": "/am-studio/static/js/main.46791454.js",
+    "main.css": "/am-studio/static/css/main.0dbd3005.css",
+    "main.js": "/am-studio/static/js/main.72b41328.js",
     "static/js/488.c0e18853.chunk.js": "/am-studio/static/js/488.c0e18853.chunk.js",
     "static/media/flower_c.gif": "/am-studio/static/media/flower_c.a85ab325275a7c111187.gif",
+    "static/media/kopf.png": "/am-studio/static/media/kopf.039a9f9bfd4e5672d308.png",
     "static/media/person2.png": "/am-studio/static/media/person2.c13f797a9ed220f11ebe.png",
     "static/media/mission.jpg": "/am-studio/static/media/mission.ddc8f113ec6df5f7c757.jpg",
     "static/media/person1.png": "/am-studio/static/media/person1.342884d143af48f71d3e.png",
@@ -15,14 +16,13 @@
     "static/media/OTNeueMontreal-BookUltraSqueezed.otf": "/am-studio/static/media/OTNeueMontreal-BookUltraSqueezed.73cb569a6ba3e39045f9.otf",
     "static/media/muschele.png": "/am-studio/static/media/muschele.84442618728296ae7eba.png",
     "static/media/sunflower.png": "/am-studio/static/media/sunflower.2947f15d96f221718ada.png",
-    "static/media/bubble.png": "/am-studio/static/media/bubble.8f3a537e84e0665ea1ba.png",
     "index.html": "/am-studio/index.html",
-    "main.ad895711.css.map": "/am-studio/static/css/main.ad895711.css.map",
-    "main.46791454.js.map": "/am-studio/static/js/main.46791454.js.map",
+    "main.0dbd3005.css.map": "/am-studio/static/css/main.0dbd3005.css.map",
+    "main.72b41328.js.map": "/am-studio/static/js/main.72b41328.js.map",
     "488.c0e18853.chunk.js.map": "/am-studio/static/js/488.c0e18853.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad895711.css",
-    "static/js/main.46791454.js"
+    "static/css/main.0dbd3005.css",
+    "static/js/main.72b41328.js"
   ]
 }
