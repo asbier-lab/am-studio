@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/am-studio/static/css/main.0dbd3005.css",
-    "main.js": "/am-studio/static/js/main.72b41328.js",
+    "main.css": "/am-studio/static/css/main.cd8d06e9.css",
+    "main.js": "/am-studio/static/js/main.9f8cfd93.js",
     "static/js/488.c0e18853.chunk.js": "/am-studio/static/js/488.c0e18853.chunk.js",
     "static/media/flower_c.gif": "/am-studio/static/media/flower_c.a85ab325275a7c111187.gif",
     "static/media/kopf.png": "/am-studio/static/media/kopf.039a9f9bfd4e5672d308.png",
@@ -17,12 +17,12 @@
     "static/media/muschele.png": "/am-studio/static/media/muschele.84442618728296ae7eba.png",
     "static/media/sunflower.png": "/am-studio/static/media/sunflower.2947f15d96f221718ada.png",
     "index.html": "/am-studio/index.html",
-    "main.0dbd3005.css.map": "/am-studio/static/css/main.0dbd3005.css.map",
-    "main.72b41328.js.map": "/am-studio/static/js/main.72b41328.js.map",
+    "main.cd8d06e9.css.map": "/am-studio/static/css/main.cd8d06e9.css.map",
+    "main.9f8cfd93.js.map": "/am-studio/static/js/main.9f8cfd93.js.map",
     "488.c0e18853.chunk.js.map": "/am-studio/static/js/488.c0e18853.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0dbd3005.css",
-    "static/js/main.72b41328.js"
+    "static/css/main.cd8d06e9.css",
+    "static/js/main.9f8cfd93.js"
   ]
 }
