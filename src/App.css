@@ -25,7 +25,7 @@
 @font-face {
   font-family: 'OTNeueMontreal';
   src: url('./fonts/OTNeueMontreal-MediumUltraSqueezed.otf') format('opentype');
-  font-weight: 500;
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -41,16 +41,110 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
 /* App.css */
+:root {
+  --main-bg: #fdeacc;
+  --accent: #8B4513;
+  --text: #222;
+  --dialog-bg: rgba(245, 235, 224, 0.5);
+  --dialog-border: rgba(139, 69, 19, 0.3);
+  --dialog-shadow: rgba(139, 69, 19, 0.2);
+  --dialog-header: var(--accent);
+  --dialog-progress: var(--accent);
+  --container-bg: #fff;
+  --container-text: #222;
+  --border-color: rgba(139, 69, 19, 0.3);
+  --border-shadow: rgba(139, 69, 19, 0.2);
+}
+
+.theme-moss {
+  --main-bg: #627b6444;
+  --accent: #7fa87f;
+  --text: #859e74;
+  --dialog-bg: rgba(209, 209, 209, 0.302);
+  --dialog-border: #7fa87f;
+  --dialog-shadow: #7fa87f44;
+  --dialog-header: #749774;
+  --dialog-progress: #75a375;
+  --container-bg: #22332585;
+  --container-text: #eafbe0;
+  --border-color: #7fa87f;
+  --border-shadow: #7fa87f44;
+}
+
+
+.theme-glass {
+  --main-bg: #fff;
+  --accent: #bdbdbd;
+  --text: #222;
+  --dialog-bg: rgba(255,255,255,0.7);
+  --dialog-border: #bdbdbd;
+  --dialog-shadow: #bdbdbd44;
+  --dialog-header: #bdbdbd;
+  --dialog-progress: #bdbdbd;
+  --container-bg: #fff;
+  --container-text: #222;
+  --border-color: #bdbdbd;
+  --border-shadow: #bdbdbd44;
+}
+
+.theme-velvet {
+  --main-bg: #3a0a18;
+  --accent: #f55882;
+  --text: #f8e6e6;
+  --dialog-bg: rgba(58, 10, 24, 0.7);
+  --dialog-border: #a12c4b;
+  --dialog-shadow: #a12c4b44;
+  --dialog-header: #a12c4b;
+  --dialog-progress: #a12c4b;
+  --container-bg: #4a1122;
+  --container-text: #f8e6e6;
+  --border-color: #a12c4b;
+  --border-shadow: #a12c4b44;
+}
+
+.theme-flower {
+  --main-bg: #499bff;
+  --accent: #c5d2e1d2;
+  --text: #5bc0ff;
+  --dialog-bg: rgba(0, 106, 255, 0.126);
+  --dialog-border: rgba(0, 106, 255, 0.7);
+  --dialog-shadow: #5982ff44;
+  --dialog-header: #93c4ff;
+  --dialog-progress: ##93c4ff;
+  --container-bg: #499bff;
+  --container-text: #5bb3f1;
+  --border-color: #187ffc;
+  --border-shadow: #97c0f762;
+}
+
+body, html, .App {
+  background: var(--main-bg);
+  color: var(--text);
+}
+
+h1, .tagline, nav ul li a {
+  color: var(--accent);
+}
+
+nav ul li a {
+  border-color: var(--accent);
+}
+
+nav ul li a:hover {
+  color: var(--main-bg);
+  background-color: var(--accent);
+  border-color: var(--accent);
+}
+
 body, html {
   margin: 0;
-  height: 100%;
+  height: 100%; /* Ensure html and body take full viewport height */
   font-family: 'OTNeueMontreal', sans-serif;
   font-weight: 300;
-  background: linear-gradient(-45deg, #d4ffef, #f4e1f2, #e0fbd4, #fdeacc);
   background-size: 400% 400%;
   animation: tinkerbellShift 20s ease infinite;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  overflow: hidden; /* Hide all overflow for the entire page (both x and y) */
   margin-bottom: 0rem;
   cursor: none; /* Versteckt den Standard-Cursor */
 }
@@ -87,36 +181,73 @@ a {
 /* Haupt-App Container (Content) */
 .App {
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* Ensure the App container itself also hides overflow */
   display: flex;
   flex-direction: column;
+  position: relative;
+  padding: 0.8rem;
+  box-sizing: border-box;
 }
 
+.App::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid var(--border-color);
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 
+    inset 0 0 20px var(--border-shadow),
+    0 0 20px var(--border-shadow);
+  clip-path: polygon(
+    0% 2%, 2% 0%, 98% 0%, 100% 2%,
+    100% 98%, 98% 100%, 2% 100%, 0% 98%
+  );
+}
+
+.App::after {
+  content: '';
+  position: fixed;
+  top: 0.8rem;
+  left: 0.8rem;
+  right: 0.8rem;
+  bottom: 0.8rem;
+  border: 1px solid var(--border-color);
+  pointer-events: none;
+  z-index: 999;
+  clip-path: polygon(
+    0% 2%, 2% 0%, 98% 0%, 100% 2%,
+    100% 98%, 98% 100%, 2% 100%, 0% 98%
+  );
+}
+
+/* Konsistente Typografie */
 h1 {
-  font-size: 2rem;
-  font-weight: 600; /* SemiBold */
-  margin-top: 0.0rem;
-  margin-bottom: 0rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin: 0;
   margin-left: 0.5rem;
   position: relative;
+  text-shadow: 0 0 10px rgba(139, 69, 19, 0.3);
 }
 
-/* Tagline Styling */
 .tagline {
   font-style: italic;
   font-weight: 800;
-  font-size: 1.8rem;
-  color: rgba(18, 18, 18, 0.3);
-  margin-top: -0.5rem;
+  font-size: 2.0rem;
+  margin-top: 0.1rem;
   margin-left: 0.5rem;
   -webkit-user-select: none;
   user-select: none;
   text-align: left;
   position: relative;
   z-index: 1;
-  transform: translateY(-0.5rem);
   transition: opacity 0.5s ease-in-out;
-  min-height: 2rem;
+  min-height: 1.5rem;
+  text-shadow: 0 0 8px rgba(139, 69, 19, 0.107);
 }
 
 p, h3 {
@@ -125,31 +256,69 @@ p, h3 {
   margin-bottom: 0.0rem;
   margin-left: 0.5rem;}
 
-nav ul {
+/* Desktop Navigation */
+.desktop-nav {
+  max-width: calc(100vw - 0.6rem);
+  margin: 0.03rem auto 0 auto;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0.1rem;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.148);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  z-index: 1001;
+  display: flex !important; /* Force display flex for desktop */
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem 0.3rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+  border: 1px solid var(--border-color, #bdbdbd);
+}
+
+.desktop-nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1.1rem;
   list-style: none;
+  margin: 0;
   padding: 0;
-  margin-top: 1rem;
-  margin-bottom: 0rem;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
 }
 
-nav ul li {
-  display: inline-block;
-  margin-right: 2rem;
-  margin-bottom: 0.3rem;
+.desktop-nav ul li {
+  display: flex;
+  align-items: center;
+  width: auto;
+  text-align: center;
 }
 
-nav ul li a {
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 100; /* dünn */
-  font-size: 0.4rem;
-  color: black;
+.desktop-nav ul li a, .desktop-nav ul li .active {
+  font-family: 'OTNeueMontreal-ThinSemiSqueezed', 'OTNeueMontreal', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  color: var(--accent, #8B4513);
   text-decoration: none;
-  transition: color 0.3s ease;
-  margin-left: 0.5rem;
+  letter-spacing: 0.01em;
+  padding: 0.4rem 0.4rem;
+  border-radius: 1px;
+  background: none;
+  border: none;
+  transition: none;
 }
 
-nav ul li a:hover {
-  color: rgb(0, 255, 0);
+.desktop-nav ul li a:hover, .desktop-nav ul li .active {
+  color: var(--main-bg, #fdeacc);
+  background: var(--accent, #8B4513);
+  border-radius: 3px;
+  padding: 0.4rem 0.4rem;
+  text-decoration: none;
+  border: none;
+  transition: none;
 }
 
 
@@ -158,15 +327,15 @@ nav ul li a:hover {
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  color: #515151;
+  color: var(--container-text);
   font-family: 'OTNeueMontreal', sans-serif;
-  background-color: #008844; /* Für Sichtbarkeit */
+  background: var(--container-bg);
   min-height: 300px;
 }
 
 .line-up h2 {
   font-weight: 400;
-  font-size: 2rem;
+  font-size: 7rem;
   line-height: 1.4;
   margin-bottom: 0rem;
   margin-left: 0.5rem;
@@ -177,151 +346,206 @@ nav ul li a:hover {
   color: #888;
   font-style: italic;
 }
+
 /* Mission Page */
 .mission-container {
   font-family: 'OTNeueMontreal-MediumExtraSqueezed', sans-serif;
   letter-spacing: 0.1em;
-  color: rgb(81, 253, 50);
-  margin: 0px; /* gleicht das Padding aus */
-  width: calc(100% + 40px); /* 20px links + rechts */
-
-  /* Neu: Zentrierung */
+  color: var(--container-text);
+  background: var(--container-bg, transparent);
+  margin: 0;
+  width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem; /* Abstand zwischen Text und Bild */
-  padding:0;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 2rem 0 0 0;
+  box-sizing: border-box;
+  position: relative;
+  height: 100vh;
+  z-index: 2;
+}
+
+.mission-container h2 {
+  font-weight: 400;
+  font-size: 9rem;
+  line-height: 8.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  margin: 0;
+  color:  #709370;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  text-shadow: 
+    0 0 2px var(--accent),
+    0 0 4px var(--accent),
+    0 0 6px var(--accent),
+    0 0 8px var(--accent),
+    0 0 10px var(--accent),
+    0 0 12px var(--accent),
+    0 0 14px var(--accent),
+    0 0 16px var(--accent),
+    0 0 18px var(--accent),
+    0 0 20px var(--accent);
+}
+
+.mission-image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  object-position: center 30%;
+}
+
+.mission-container p {
+  background: rgba(34, 51, 37, 0.4); /* sanfter dunkelgrüner Hintergrund */
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  backdrop-filter: blur(2px);
+}
+
+.mission-container .subtle {
+  color: rgba(128, 128, 128, 0.322);
+  font-weight: 300;
 }
 
 
-.mission-container h2 {
+/* Mission Page */
+.shop-container {
+  font-family: 'OTNeueMontreal-MediumExtraSqueezed', sans-serif;
+  letter-spacing: 0.1em;
+  color: var(--container-text);
+  background: var(--container-bg, transparent);
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 2rem 0 0 0;
+  box-sizing: border-box;
+  position: relative;
+  height: 100vh;
+  z-index: 2;
+}
+
+.shop-container h2 {
   font-weight: 400;
   font-size: 6rem;
   line-height: 4.5rem;
   text-transform: uppercase;
   letter-spacing: 0;
   margin: 0;
-}
-
-
-.mission-image {
-  width: 100%;   /* Volle Breite des Viewports */
-  height: 100%;  /* volle Höhe des Viewports, wenn gewünscht */
-  object-fit: cover; /* Damit das Bild nicht verzerrt wird */
-  margin: 0;
-  padding: 0;
-  display: block;  /* Vermeidet zusätzlichen Abstand */
-}
-
-.mission-container p {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  max-width: 800px;
-}
-
-.mission-container .subtle {
-  color: gray;
-  font-weight: 300;
+  color:  #71aaff;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  text-shadow: 
+    0 0 2px var(--accent),
+    0 0 4px var(--accent),
+    0 0 6px var(--accent),
+    0 0 8px var(--accent),
+    0 0 10px var(--accent),
+    0 0 12px var(--accent),
+    0 0 14px var(--accent),
+    0 0 16px var(--accent),
+    0 0 18px var(--accent),
+    0 0 20px var(--accent);
 }
 
 /* Content */
 .content {
   margin-top: 0;
   padding: 0;
-  font-size: 3rem;
-  height: 100vh;
-  overflow: hidden;
+  /* font-size: 3rem; Removed as it's likely not intended for the container itself */
+  /* height: 100vh; Removed as it conflicts with parent .App's height and flex-grow */
+  overflow: hidden; /* Keep overflow hidden for the main content area */
+  flex-grow: 1; /* Make it take all available vertical space */
+  display: flex; /* Make it a flex container */
+  flex-direction: column; /* Stack children vertically */
+  justify-content: center; /* Center content vertically within this area */
+  align-items: center; /* Center content horizontally within this area */
 }
-.people-container {
+
+/* People Page Styles */
+.people-fullpage-container {
+  width: 100vw; /* Keep full viewport width */
+  height: 100vh; /* Keep full viewport height for overall container */
+  position: relative;
+  overflow: hidden; /* Hide overflow from the main container */
   display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+}
+
+.flower-layout {
+  position: relative;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
-  margin: 0;       /* Margin rausnehmen */
-  padding: 0;      /* Padding rausnehmen */
-  box-sizing: border-box;
+  min-width: 320px;
+  min-height: 320px;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 0 auto;
+  display: block;
+  top: 8vh;
 }
 
-.people-image-big {
-  width: 60vw;        /* Adjust as needed */
-  height: 100vh;      /* Full height */
-  object-fit: cover;  /* Keeps aspect ratio, fills box */
+.person-flower-img-wrapper {
+  position: absolute;
+  width: 120px;
+  height: 180px;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
-.people-image-small {
-  width: 30vw;
-  height: auto;
-  align-self: center;
-  transform: scale(0.5); /* Makes it 50% smaller for contrast */
-}
-
-.left-image, .right-content {
-  width: 50vw;
-  height: 100vh;
-}
-
-.left-image img {
-  width: 100%;
-  height: 100%;
+.person-flower-img {
+  width: 120px;
+  height: 180px;
   object-fit: cover;
+  border: none;
+  border-radius: 0;
+  display: block;
 }
 
-.right-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f9f9f9; /* or any contrast you like */
-}
-
-.small-image-wrapper {
-  width: 10rem; /* Scaled image */
-  max-width: 90%;
-}
-
-.small-image-wrapper img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-
-@media (max-width: 768px) {
-  .mission-container {
-    font-size: 3.5rem;
-  }
-
-  .mission-container h2 {
-    font-size: 4.4rem;
-      line-height: 0rem;
-
-  }
-}
-
-@media (max-width: 480px) {
-  .mission-container {
-    font-size: 2.5rem;
-  }
-
-  .mission-container h2 {
-    font-size: 3rem;
-    line-height: 2.5rem;
-  }
-}
-
-/* Benutzerdefinierter Cursor */
-.custom-cursor {
-  width: 32px;
-  height: 32px;
-  position: fixed;
+.person-flower-name {
+  position: absolute;
+  top: 10px; /* Adjusted to match mobile for consistent positioning */
+  left: 10px; /* Adjusted to match mobile for consistent positioning */
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-weight: 100;
+  font-size: 0.9rem; /* Adjusted font size for better legibility */
+  color: var(--container-text); /* Changed to container-text for better contrast */
+  background: rgba(0, 0, 0, 0.4); /* Added semi-transparent background */
+  padding: 3px 8px; /* Added padding */
+  border-radius: 4px; /* Added border-radius */
+  z-index: 2;
   pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-  transition: all 0.1s ease;
-  background-image: url('./assets/yasmin.png');
-  background-size: contain;
-  background-repeat: no-repeat;
+  letter-spacing: 0.02em;
+  text-shadow: none;
 }
+
+
 
 /* Cursor-Effekt beim Hover über interaktive Elemente */
 a:hover ~ .custom-cursor,
@@ -331,4 +555,322 @@ input:hover ~ .custom-cursor,
 select:hover ~ .custom-cursor,
 textarea:hover ~ .custom-cursor {
   transform: scale(1.5);
+}
+
+/* Scanning Animation */
+.scanning-text {
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+  padding: 0.5rem 1rem;
+  background-color: var(--dialog-bg);
+  border: 1px solid var(--dialog-border);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px var(--dialog-shadow);
+}
+
+header {
+  position: relative; /* Ensure header is a positioning context for absolute children */
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+}
+
+header h1 {
+  position: relative;
+  z-index: 10;
+  margin: 0;
+  margin-left: 0.5rem;
+}
+
+.tagline {
+  position: relative;
+  z-index: 10;
+  margin: 0;
+  margin-top: 0.3rem;
+  margin-left: 0.5rem;
+  transform: translateY(-0.8rem);
+}
+
+.people-header {
+  position: absolute;
+  z-index: 2;
+  top: 10vh;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  pointer-events: auto;
+}
+
+.people-logo {
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-weight: 100;
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.08em;
+  background: none;
+  text-shadow: none;
+}
+
+.floating-dialogue-container {
+  background: var(--dialog-bg);
+  box-shadow: 0 0 20px var(--dialog-shadow), inset 0 0 15px var(--dialog-shadow), 0 0 0 2px var(--dialog-border);
+  border-radius: 0.3rem;
+  border: 1px solid var(--dialog-border);
+  color: var(--accent);
+}
+
+.dialogue-header {
+  color: var(--dialog-header);
+  border-bottom: 1px solid var(--dialog-border);
+}
+
+.status-text::before {
+  background: var(--dialog-header);
+}
+
+.scanning-indicator {
+  color: var(--dialog-header);
+}
+
+.progress-bar {
+  background: var(--dialog-border);
+}
+
+.progress {
+  background: var(--dialog-progress);
+  box-shadow: 0 0 5px var(--dialog-shadow);
+}
+
+/* Mobile navigation toggle button (the dot) */
+.mobile-menu-toggle {
+  display: none !important; /* Force hide on desktop */
+  width: 16px; /* Smaller dot */
+  height: 16px; /* Smaller dot */
+  border-radius: 50%; /* Circle shape */
+  background-color: var(--accent); /* Color of the dot */
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: absolute; /* Position absolutely within header */
+  top: 1rem; /* Adjust as needed, relative to header padding */
+  right: 1rem; /* Adjust as needed, relative to header padding */
+  z-index: 11000; /* Ensure it's on top */
+  transition: transform 0.2s ease-in-out;
+  display: flex; /* To center the inner dot if needed, though not strictly required for a single dot */
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-menu-toggle:hover {
+  transform: scale(1.2); /* Slight scale on hover */
+}
+
+/* The actual dot inside the button (optional, but good for consistency) */
+.mobile-menu-toggle .dot {
+  display: block;
+  width: 8px; /* Inner dot size */
+  height: 8px; /* Inner dot size */
+  background-color: var(--main-bg); /* Contrast color for the inner dot */
+  border-radius: 50%;
+}
+
+/* Visually hidden but accessible text */
+.sr-only {
+  position: absolute;
+  width: 1px; 
+  height: 1px; 
+  padding: 0; 
+  margin: -1px; 
+  overflow: hidden; 
+  clip: rect(0, 0, 0, 0); 
+  white-space: nowrap; 
+  border: 0;
+}
+
+/* Mobile Navigation Overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--dialog-bg); /* Use theme dialog background */
+  backdrop-filter: blur(10px); /* Stronger blur for overlay */
+  z-index: 10999;
+  display: flex; /* Use flex to center content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Spacing between mobile menu items */
+  text-align: center;
+  max-width: 200px; /* Limit width of the actual links container */
+  width: 100%; /* Ensure it takes available width up to max */
+}
+
+.mobile-nav-links ul li a,
+.mobile-nav-links ul li :where(a, button, [role="button"]) {
+  font-family: 'OTNeueMontreal', sans-serif; /* Use a consistent font */
+  font-weight: 500; /* Medium weight for mobile links */
+  font-size: 1.5rem; /* Larger font size for mobile links */
+  color: var(--accent); /* Accent color for links */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mobile-nav-links ul li a:hover {
+  color: var(--text); /* Change color on hover */
+}
+
+/* Mobile Menu Close Button */
+.mobile-menu-close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem; /* Larger X */
+  color: var(--accent); /* Color of the X */
+  cursor: pointer;
+  z-index: 11001; /* Ensure it's above the overlay */
+  padding: 0.5rem;
+  line-height: 1; /* Prevents extra space around X */
+}
+
+.mobile-menu-close-button:hover {
+  color: var(--text); /* Change color on hover */
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+  /* Hide desktop navigation on mobile */
+  .desktop-nav {
+    display: none !important; /* Force hide on mobile */
+  }
+
+  /* Show mobile menu toggle button on mobile */
+  .mobile-menu-toggle {
+    display: flex !important; /* Force show on mobile */
+  }
+
+  /* Adjust header padding for mobile if needed */
+  header {
+    padding: 0.8rem; /* Keep consistent with App padding */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative; /* Ensure it's a positioning context for absolute toggle */
+    width: 100%; /* Full width header */
+    box-sizing: border-box;
+  }
+
+  /* Adjust h1 and tagline for mobile */
+  header h1 {
+    font-size: 1.8rem; /* Smaller title on mobile */
+    margin-left: 0.2rem;
+  }
+
+  .tagline {
+    font-size: 1.2rem; /* Smaller tagline on mobile */
+    margin-left: 0.2rem;
+    transform: translateY(-0.5rem); /* Adjust vertical position */
+  }
+
+  /* Adjust h2 font size for mobile on mission, line-up, and shop pages */
+  .mission-container h2,
+  .line-up h2,
+  .shop-container h2 { /* Added .shop-container h2 */
+    font-size: 3rem; /* Smaller font size for h2 on mobile */
+    line-height: 3.5rem; /* Adjust line height accordingly */
+    padding: 0 1rem; /* Adjust padding to prevent overflow */
+  }
+
+  /* Hide custom cursor on mobile */
+  .custom-cursor {
+    display: none !important;
+  }
+
+  /* Mobile-specific styles for the People carousel */
+  .people-fullpage-container {
+    height: 100%; /* Take 100% of parent (.content) height */
+    overflow-y: hidden; /* Crucial to prevent vertical scrolling */
+    display: flex;
+    flex-direction: column; /* Ensure it's a flex column */
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center; /* Center content horizontally */
+    padding-top: 0; /* Reset padding-top */
+    width: 100%; /* Ensure it takes full width */
+  }
+
+  .mobile-flower-layout {
+    display: flex;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    width: 100%; /* Use 100% width for the scroll container */
+    padding: 0 20px; /* Padding for the ends of the scroll area */
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center; /* Vertically center items within the scroll container */
+    gap: 30px;
+    margin-top: 10vh; /* Adjust this value as needed to center visually */
+    min-height: 300px; /* Keep min-height for content sizing */
+  }
+
+  .mobile-flower-layout .person-flower-img-wrapper {
+    scroll-snap-align: center;
+    position: relative; /* Important for absolute positioning of name */
+    left: auto;
+    top: auto;
+    transform: none;
+    margin-bottom: 0;
+    text-align: center;
+    width: 180px; /* 120px * 1.5 */
+    height: 270px; /* 180px * 1.5 */
+    flex-shrink: 0;
+  }
+
+  .mobile-flower-layout .person-flower-name {
+    position: absolute; /* Position relative to .person-flower-img-wrapper */
+    top: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    margin-top: 0; /* Reset margin-top */
+    text-align: left; /* Align text to the left */
+    width: auto; /* Let content define width */
+    font-size: 0.9rem; /* Slightly smaller font for title */
+    color: var(--container-text); /* Use container text color for names */
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent background for readability */
+    padding: 3px 8px; /* Padding around the text */
+    border-radius: 4px; /* Slightly rounded corners */
+  }
+
+  .mobile-flower-layout .person-flower-img {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    width: 100%;
+    height: 100%;
+  }
 }
