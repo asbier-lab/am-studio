@@ -909,11 +909,44 @@ header h1 {
   .mission-container h2,
   .line-up h2,
   .shop-container h2 { /* Added .shop-container h2 */
-    font-size: 3rem; /* Smaller font size for h2 on mobile */
-    line-height: 3.5rem; /* Adjust line height accordingly */
-    padding: 0 1rem; /* Adjust padding to prevent overflow */
+    font-size: 3.4rem; /* Smaller font size for h2 on mobile */
+    line-height: 3.6rem; /* Adjust line height accordingly */
+    padding: 0 1rem; /* Adjust padding to prevent overflow */text-shadow:
+      0 0 1px var(--accent),
+      0 0 2px var(--accent),
+      0 0 3px var(--accent),
+      0 0 4px var(--accent); /* Reduced number of layers and size */
+  }
+ /* Adjust product grid for mobile */
+  .products-grid {
+    padding: 1.5rem;
+    gap: 1rem;
+    padding-top: 2rem; /* Less padding on top for mobile */
+  }
+.product-card {
+    flex: 0 0 85%; /* Take up more width on mobile */
+    min-height: auto; /* Let height adjust to content */
+  }
+  /* Adjust product details text for mobile */
+  .product-details {
+    padding: 0.5rem 0; /* Less padding */
   }
 
+
+  .product-details h3 {
+    font-size: 1rem; /* Smaller title */
+    margin-bottom: 0.3rem;
+  }
+
+  .product-details p {
+    font-size: 0.8rem; /* Smaller description text */
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .price {
+    font-size: 0.9rem; /* Smaller price text */
+  }
   /* Hide custom cursor on mobile */
   .custom-cursor {
     display: none !important;
@@ -978,5 +1011,92 @@ header h1 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     width: 100%;
     height: 100%;
+  }
+  .product-image {
+    aspect-ratio: 1; /* Keep square aspect ratio */
+    max-height: 300px; /* Maximum height on mobile */
+  }
+
+}
+
+/* Smaller devices adjustments */
+@media (max-width: 380px) {
+  .shop-container {
+    padding-top: 0; /* Remove top padding */
+  }
+
+  .shop-container h2 {
+    font-size: 2rem;
+    line-height: 1rem;
+    letter-spacing: 0.3rem;
+    margin-bottom: -1rem; /* Reduce overlap with slider */
+    text-shadow:
+      0 0 1px var(--accent),
+      0 0 2px var(--accent); /* Only two layers for smallest screens */
+  }
+
+  .products-grid {
+    padding-top: 2rem; /* Less padding on very small devices */
+  }
+
+  .product-card {
+    flex: 0 0 95%; /* Take up more width on very small devices */
+    margin: 0; /* Remove margins */
+    padding: 0 0.2rem; /* Minimal padding */
+  }
+
+  .product-image {
+    aspect-ratio: 1;
+    width: 100%;
+  }
+
+  .product-details {
+    padding: 0.5rem 0.2rem;
+  }
+
+  .product-details h3 {
+    font-size: 0.85rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .product-details p {
+    font-size: 0.7rem;
+    line-height: 1.2;
+    margin-bottom: 0.3rem;
+  }
+
+  .price {
+    font-size: 0.8rem;
+  }
+}
+
+/* Very small devices (iPhone SE, etc.) */
+@media (max-width: 320px) {
+  .shop-container h2 {
+    font-size: 1.4rem;
+    line-height: 0.7rem;
+    letter-spacing: 0.2rem;
+    text-shadow: 0 0 1px var(--accent);
+  }
+
+  .products-grid {
+    padding: 0.5rem;
+    padding-top: 2rem;
+  }
+
+  .product-card {
+    flex: 0 0 100%; /* Full width on very small devices */
+  }
+
+  .product-details h3 {
+    font-size: 0.8rem;
+  }
+
+  .product-details p {
+    font-size: 0.65rem;
+  }
+
+  .price {
+    font-size: 0.75rem;
   }
 }
