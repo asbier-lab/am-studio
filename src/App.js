@@ -21,7 +21,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   // Determine cell image source and theme class based on current path
-  let cellImageSrc = flower_c; // default
+  let cellImageSrc = sunflower; // default
   let themeClass = '';
   if (location.pathname.includes('PeoplePage')) {
     cellImageSrc = paddle;
@@ -33,7 +33,7 @@ function App() {
     cellImageSrc = flower_c;
     themeClass = 'theme-glass';
   } else if (location.pathname.includes('shop')) {
-    cellImageSrc = sunflower;
+    cellImageSrc = flower_c;
     themeClass = 'theme-flower';
   }
 

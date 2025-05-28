@@ -42,23 +42,24 @@
 
 /* App.css */
 :root {
-  --main-bg: #fdeacc;
-  --accent: #8B4513;
-  --text: #222;
-  --dialog-bg: rgba(245, 235, 224, 0.5);
-  --dialog-border: rgba(139, 69, 19, 0.3);
-  --dialog-shadow: rgba(139, 69, 19, 0.2);
-  --dialog-header: var(--accent);
-  --dialog-progress: var(--accent);
-  --container-bg: #fff;
-  --container-text: #222;
-  --border-color: rgba(139, 69, 19, 0.3);
-  --border-shadow: rgba(139, 69, 19, 0.2);
+
+  --main-bg: #499bff;
+  --accent: #c5d2e1d2;
+  --text: #5bc0ff;
+  --dialog-bg: rgba(0, 106, 255, 0.126);
+  --dialog-border: rgba(0, 106, 255, 0.7);
+  --dialog-shadow: #5982ff44;
+  --dialog-header: #93c4ff;
+  --dialog-progress: ##93c4ff;
+  --container-bg: #499bff;
+  --container-text: #5bb3f1;
+  --border-color: #187ffc;
+  --border-shadow: #97c0f762;
 }
 
 .theme-moss {
   --main-bg: #627b6444;
-  --accent: #7fa87f;
+  --accent: #2e572e;
   --text: #859e74;
   --dialog-bg: rgba(209, 209, 209, 0.302);
   --dialog-border: #7fa87f;
@@ -103,18 +104,18 @@
 }
 
 .theme-flower {
-  --main-bg: #499bff;
-  --accent: #c5d2e1d2;
-  --text: #5bc0ff;
-  --dialog-bg: rgba(0, 106, 255, 0.126);
-  --dialog-border: rgba(0, 106, 255, 0.7);
-  --dialog-shadow: #5982ff44;
-  --dialog-header: #93c4ff;
-  --dialog-progress: ##93c4ff;
-  --container-bg: #499bff;
-  --container-text: #5bb3f1;
-  --border-color: #187ffc;
-  --border-shadow: #97c0f762;
+  --main-bg: #ede5d7;
+  --accent: #2c2c2c;
+  --text: #222222;
+  --dialog-bg: #ede5d7;
+  --dialog-border: #222;
+  
+  --dialog-header: #222;
+  --dialog-progress:#222;
+  --container-bg:#ede5d7;
+  --container-text: #222222;
+  --border-color:#222;
+  
 }
 
 body, html, .App {
@@ -373,9 +374,9 @@ p, h3 {
   font-size: 9rem;
   line-height: 8.5rem;
   text-transform: uppercase;
-  letter-spacing: 0;
+  letter-spacing: 1rem;
   margin: 0;
-  color:  #709370;
+  color:  #315c31;;
   width: 100%;
   max-width: 100%;
   padding: 0 2rem;
@@ -450,9 +451,9 @@ p, h3 {
   font-size: 6rem;
   line-height: 4.5rem;
   text-transform: uppercase;
-  letter-spacing: 0;
+  letter-spacing: 1rem;
   margin: 0;
-  color:  #71aaff;
+  color:   #222222;
   width: 100%;
   max-width: 100%;
   padding: 0 2rem;
