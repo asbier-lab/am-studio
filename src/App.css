@@ -40,7 +40,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
-/* App.css */
+/* App.css *//* App.css */
 :root {
 
   --main-bg: #499bff;
@@ -50,7 +50,7 @@
   --dialog-border: rgba(0, 106, 255, 0.7);
   --dialog-shadow: #5982ff44;
   --dialog-header: #93c4ff;
-  --dialog-progress: ##93c4ff;
+  --dialog-progress: #93c4ff; /* Corrected: removed extra # */
   --container-bg: #499bff;
   --container-text: #5bb3f1;
   --border-color: #187ffc;
@@ -126,7 +126,12 @@ body, html, .App {
 h1, .tagline, nav ul li a {
   color: var(--accent);
 }
-
+/* Add this near the top of your CSS file, with other base styles */
+h2 {
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0;
+}
 nav ul li a {
   border-color: var(--accent);
 }
@@ -261,8 +266,8 @@ p, h3 {
 .desktop-nav {
   max-width: calc(100vw - 0.6rem);
   margin: 0.03rem auto 0 auto;
-  position: -webkit-sticky;
-  position: sticky;
+  position: -webkit-sticky; /* For older Safari */
+  position: sticky;         /* Standard */
   top: 0.1rem;
   left: 0;
   right: 0;
@@ -335,10 +340,8 @@ p, h3 {
 }
 
 .line-up h2 {
-  font-weight: 400;
-  font-size: 7rem;
-  line-height: 1.4;
-  margin-bottom: 0rem;
+  font-size: clamp(3rem, 7vw, 7rem);
+  line-height: 1.2;
   margin-left: 0.5rem;
 }
 
@@ -370,13 +373,10 @@ p, h3 {
 }
 
 .mission-container h2 {
-  font-weight: 400;
-  font-size: 9rem;
-  line-height: 8.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1rem;
-  margin: 0;
-  color:  #315c31;;
+  font-size: clamp(3.4rem, 8vw, 9rem);
+  line-height: 1.1;
+  letter-spacing: clamp(0.5rem, 1vw, 1rem);
+  color: #315c31;
   width: 100%;
   max-width: 100%;
   padding: 0 2rem;
@@ -447,13 +447,10 @@ p, h3 {
 }
 
 .shop-container h2 {
-  font-weight: 400;
-  font-size: 6rem;
-  line-height: 4.5rem;
-  text-transform: uppercase;
-  letter-spacing: 1rem;
-  margin: 0;
-  color:   #222222;
+ font-size: clamp(2.5rem, 6vw, 6rem);
+  line-height: 1.1;
+  letter-spacing: clamp(0.3rem, 0.8vw, 1rem);
+  color: #222222;
   width: 100%;
   max-width: 100%;
   padding: 0 2rem;
@@ -905,32 +902,6 @@ header h1 {
     transform: translateY(-0.5rem); /* Adjust vertical position */
   }
 
-  /* Adjust h2 font size for mobile on mission, line-up, and shop pages */
-  .mission-container h2,
-  .line-up h2,
-  .shop-container h2 { /* Added .shop-container h2 */
-    font-size: 3.4rem; /* Smaller font size for h2 on mobile */
-    line-height: 3.6rem; /* Adjust line height accordingly */
-    padding: 0 1rem; /* Adjust padding to prevent overflow */text-shadow:
-      0 0 1px var(--accent),
-      0 0 2px var(--accent),
-      0 0 3px var(--accent),
-      0 0 4px var(--accent); /* Reduced number of layers and size */
-  }
- /* Adjust product grid for mobile */
-  .products-grid {
-    padding: 1.5rem;
-    gap: 1rem;
-    padding-top: 2rem; /* Less padding on top for mobile */
-  }
-.product-card {
-    flex: 0 0 85%; /* Take up more width on mobile */
-    min-height: auto; /* Let height adjust to content */
-  }
-  /* Adjust product details text for mobile */
-  .product-details {
-    padding: 0.5rem 0; /* Less padding */
-  }
 
 
   .product-details h3 {
@@ -1019,21 +990,7 @@ header h1 {
 
 }
 
-/* Smaller devices adjustments */
-@media (max-width: 380px) {
-  .shop-container {
-    padding-top: 0; /* Remove top padding */
-  }
 
-  .shop-container h2 {
-    font-size: 2rem;
-    line-height: 1rem;
-    letter-spacing: 0.3rem;
-    margin-bottom: -1rem; /* Reduce overlap with slider */
-    text-shadow:
-      0 0 1px var(--accent),
-      0 0 2px var(--accent); /* Only two layers for smallest screens */
-  }
 
   .products-grid {
     padding-top: 2rem; /* Less padding on very small devices */
@@ -1045,10 +1002,11 @@ header h1 {
     padding: 0 0.2rem; /* Minimal padding */
   }
 
-  .product-image {
-    aspect-ratio: 1;
-    width: 100%;
-  }
+ .product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Changed from 'cover' to 'contain' */
+}
 
   .product-details {
     padding: 0.5rem 0.2rem;
@@ -1068,16 +1026,26 @@ header h1 {
   .price {
     font-size: 0.8rem;
   }
+
+@media (max-width: 480px) {
+  .mission-container h2,
+  .line-up h2,
+  .shop-container h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.3;
+    letter-spacing: 0.3rem;
+  }
 }
 
-/* Very small devices (iPhone SE, etc.) */
 @media (max-width: 320px) {
+  .mission-container h2,
+  .line-up h2,
   .shop-container h2 {
-    font-size: 1.4rem;
-    line-height: 0.7rem;
+    font-size: clamp(2.4rem, 3vw, 2rem);
+    line-height: 1.2;
     letter-spacing: 0.2rem;
-    text-shadow: 0 0 1px var(--accent);
   }
+}
 
   .products-grid {
     padding: 0.5rem;
@@ -1099,4 +1067,4 @@ header h1 {
   .price {
     font-size: 0.75rem;
   }
-}
+
