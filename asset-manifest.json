@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/am-studio/static/css/main.26dece84.css",
-    "main.js": "/am-studio/static/js/main.d0c8ab83.js",
+    "main.js": "/am-studio/static/js/main.20722bc8.js",
     "static/js/488.be3a6848.chunk.js": "/am-studio/static/js/488.be3a6848.chunk.js",
     "static/media/flower_c.gif": "/am-studio/static/media/flower_c.a85ab325275a7c111187.gif",
     "static/media/kopf.png": "/am-studio/static/media/kopf.039a9f9bfd4e5672d308.png",
@@ -19,13 +19,14 @@
     "static/media/yasmin.png": "/am-studio/static/media/yasmin.0b6d27be31f763fe3273.png",
     "static/media/muschele.png": "/am-studio/static/media/muschele.84442618728296ae7eba.png",
     "static/media/sunflower.png": "/am-studio/static/media/sunflower.2947f15d96f221718ada.png",
+    "static/media/abuchstabe.png": "/am-studio/static/media/abuchstabe.b835bc2de069d673e260.png",
     "index.html": "/am-studio/index.html",
     "main.26dece84.css.map": "/am-studio/static/css/main.26dece84.css.map",
-    "main.d0c8ab83.js.map": "/am-studio/static/js/main.d0c8ab83.js.map",
+    "main.20722bc8.js.map": "/am-studio/static/js/main.20722bc8.js.map",
     "488.be3a6848.chunk.js.map": "/am-studio/static/js/488.be3a6848.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.26dece84.css",
-    "static/js/main.d0c8ab83.js"
+    "static/js/main.20722bc8.js"
   ]
 }
