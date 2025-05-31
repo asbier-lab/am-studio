@@ -9,10 +9,12 @@ import People from './People';
 import CustomCursor from './CustomCursor';
 import Shop from './shop';
 
+
 import flower_c from './assets/flower_c.gif';
 import paddle from './assets/paddle.png';
 import muschele from './assets/muschele.png';
 import sunflower from './assets/sunflower.png';
+import abuchstabe from './assets/abuchstabe.png';
 
 import './App.css';
 
@@ -33,7 +35,7 @@ function App() {
     cellImageSrc = flower_c;
     themeClass = 'theme-glass';
   } else if (location.pathname.includes('shop')) {
-    cellImageSrc = flower_c;
+    cellImageSrc = abuchstabe;
     themeClass = 'theme-flower';
   }
 
