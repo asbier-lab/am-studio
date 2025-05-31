@@ -6,21 +6,21 @@ import yasmin from './assets/yasmin.png';
 const Shop = () => {
   const products = [
     {
-      name: "Burn",
-      description: "Thoughtfully crafted design",
-      price: "€120",
+      name: "ALGEA2000",
+      description: "ALGE Jacket - Algae-based Biodegradable Design",
+      price: "€ UNDEFINED",
       image: burn
     },
     {
-      name: "Lotus",
-      description: "Beautiful lotus design",
-      price: "€85",
+      name: "SHOE3000 IDEA",
+      description: "Walk Over Water – Fully Compostable Mycelium Design",
+      price: "€ UNDEFINED",
       image: lotus
     },
     {
-      name: "Yasmin",
-      description: "Elegant yasmin design",
-      price: "€95",
+      name: "A-CLEANER",
+      description: "A biodegradable cleaning brush made from pressed lavender – perfect for fresh, natural porcelain care",
+      price: "€ UNDEFINED",
       image: yasmin
     }
   ];

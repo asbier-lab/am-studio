@@ -15,6 +15,7 @@ import paddle from './assets/paddle.png';
 import muschele from './assets/muschele.png';
 import sunflower from './assets/sunflower.png';
 import abuchstabe from './assets/abuchstabe.png';
+import jbuchstabe from './assets/jbuchstabe.png';
 
 import './App.css';
 
@@ -35,7 +36,7 @@ function App() {
     cellImageSrc = flower_c;
     themeClass = 'theme-glass';
   } else if (location.pathname.includes('shop')) {
-    cellImageSrc = abuchstabe;
+      cellImageSrc = abuchstabe;
     themeClass = 'theme-flower';
   }
 

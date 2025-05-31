@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './FloatingDialogue.css';
 
 const questions = [
+    "JEDEM ANFANG WOHNT EIN ZAUBER INNE.",
   "WHO DO YOU HELP?",
   "WHO DO YOU HURT?",
   "ARE YOU BUILDING OR BORROWING?",
