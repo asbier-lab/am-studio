@@ -107,9 +107,8 @@
   --main-bg: #ede5d7;
   --accent: #2c2c2c;
   --text: #222222;
-  --dialog-bg: #ede5d7;
+  --dialog-bg:  #ede5d7;
   --dialog-border: #222;
-
   --dialog-header: #222;
   --dialog-progress:#222;
   --container-bg:#ede5d7;
@@ -117,7 +116,18 @@
   --border-color:#222;
 
 }
-
+.theme-neutral {
+  --main-bg: #f9f9f9; /* Light background for legal pages */
+  --accent: #333; /* Dark text color */
+  --text: #222; /* Text color */
+  --dialog-bg: rgba(255, 255, 255, 0.9); /* Background for dialogs */
+  --dialog-border: #ccc; /* Border color for dialogs */
+  --dialog-header: #444; /* Header color for dialogs */
+  --container-bg: #f9f9f9; /* Background for containers */
+  --container-text: #222; /* Text color for containers */
+  --border-color: #ddd; /* Border color */
+  --border-shadow: rgba(0, 0, 0, 0.1); /* Shadow color */
+}
 body, html, .App {
   background: var(--main-bg);
   color: var(--text);
@@ -796,7 +806,25 @@ header h1 {
   white-space: nowrap;
   border: 0;
 }
+.legal-page-container {
+  font-family: 'OTNeueMontreal', sans-serif;
+  color: var(--text);
+  background: var(--main-bg);
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: left;
+  line-height: 1.6;
+}
 
+.legal-page-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.legal-page-container p {
+  margin-bottom: 1rem;
+}
 /* Mobile Navigation Overlay */
 .mobile-nav-overlay {
   position: fixed;

@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import CellSketch from './CellSketch';
@@ -8,14 +9,17 @@ import FloatingDialogue from './floatingDialogue';
 import People from './People';
 import CustomCursor from './CustomCursor';
 import Shop from './shop';
-
+// Import new legal pages
+import PrivacyPolicy from './PrivacyPolicy';
+import TermsAndConditions from './TermsAndConditions';
+import Impressum from './Impressum';
 
 import flower_c from './assets/flower_c.gif';
 import paddle from './assets/paddle.png';
 import muschele from './assets/muschele.png';
 import sunflower from './assets/sunflower.png';
 import abuchstabe from './assets/abuchstabe.png';
-import jbuchstabe from './assets/jbuchstabe.png';
+// import jbuchstabe from './assets/jbuchstabe.png'; // jbuchstabe was imported but not used
 
 import './App.css';
 
@@ -23,8 +27,7 @@ function App() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  // Determine cell image source and theme class based on current path
-  let cellImageSrc = sunflower; // default
+  let cellImageSrc = sunflower;
   let themeClass = '';
   if (location.pathname.includes('PeoplePage')) {
     cellImageSrc = paddle;
@@ -36,14 +39,15 @@ function App() {
     cellImageSrc = flower_c;
     themeClass = 'theme-glass';
   } else if (location.pathname.includes('shop')) {
-      cellImageSrc = abuchstabe;
+    cellImageSrc = abuchstabe;
     themeClass = 'theme-flower';
+  } else if (location.pathname.includes('/privacy-policy') || location.pathname.includes('/terms-and-conditions') || location.pathname.includes('/impressum')) {
+    themeClass = 'theme-neutral';
   }
 
-  // Function to toggle the mobile menu open/closed
+
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
-  // Define nav links content once to reuse for both desktop and mobile
   const navLinksContent = (
     <ul>
       <li>
@@ -66,78 +70,71 @@ function App() {
       <li>
         <Link to="/shop" onClick={() => setMenuOpen(false)}>SHOP</Link>
       </li>
+      {/* You might add links to legal pages here or in a footer later */}
     </ul>
   );
 
   return (
     <>
-      {/* Background Cell Sketch and Custom Cursor */}
       <CellSketch cellImageSrc={cellImageSrc} />
       <CustomCursor />
-
-      {/* Main App Container with dynamic theme class */}
       <div className={`App ${themeClass}`}>
         <header>
-          {/* Main Title/Logo with Link to Home */}
           <h1>
             <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} onClick={() => setMenuOpen(false)}>
               AM-STUDIO FOR LIVING MATTER
             </Link>
           </h1>
-          {/* Rotating Tagline */}
           <RotatingTagline />
-
-          {/* Mobile Toggle Button (the dot) */}
-          {/* This button is positioned absolutely in the header and shown only on mobile */}
           <button
             className="mobile-menu-toggle"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
             onClick={toggleMenu}
           >
-            <span className="dot"></span> {/* The visual dot element */}
-            <span className="sr-only">{menuOpen ? 'Close menu' : 'Open menu'}</span> {/* Screen reader text */}
+            <span className="dot"></span>
+            <span className="sr-only">{menuOpen ? 'Close menu' : 'Open menu'}</span>
           </button>
-
-          {/* Desktop Navigation */}
-          {/* Changed className from 'main-nav' to 'desktop-nav' to match CSS */}
           <nav className="desktop-nav">
             {navLinksContent}
           </nav>
         </header>
 
-        {/* Mobile Navigation Overlay */}
-        {/* This overlay appears when the mobile menu toggle is clicked */}
         {menuOpen && (
-          <div className="mobile-nav-overlay open"> {/* 'open' class for CSS transitions */}
+          <div className="mobile-nav-overlay open">
             <button className="mobile-menu-close-button" onClick={toggleMenu} aria-label="Close menu">
-              &times; {/* HTML entity for a multiplication sign (looks like an X) */}
+              &times;
             </button>
             <nav className="mobile-nav-links">
               {navLinksContent}
+              {/* Example of adding legal links to mobile menu */}
+              {/* Consider a more structured approach if menu grows */}
+              <li style={{marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--accent)'}}><Link to="/privacy-policy" onClick={() => setMenuOpen(false)}>Privacy</Link></li>
+              <li><Link to="/terms-and-conditions" onClick={() => setMenuOpen(false)}>Terms</Link></li>
+              <li><Link to="/impressum" onClick={() => setMenuOpen(false)}>Impressum</Link></li>
             </nav>
           </div>
         )}
 
-        {/* Main Content Area where routes are rendered */}
         <main className="content">
           <Routes>
-            <Route path="/" element={<div></div>} /> {/* Default empty route for home */}
+            <Route path="/" element={<></>} />
             <Route path="/mission" element={<Mission />} />
             <Route path="/line-up" element={<Lineup />} />
             <Route path="/PeoplePage" element={<People />} />
             <Route path="/shop" element={<Shop />} />
+            {/* Add routes for legal pages */}
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+            <Route path="/impressum" element={<Impressum />} />
           </Routes>
         </main>
-
-        {/* Floating Dialogue Component */}
         <FloatingDialogue />
       </div>
     </>
   );
 }
 
-// Wrapper component to provide Router context to App
 function AppWithRouter() {
   return (
     <Router>
