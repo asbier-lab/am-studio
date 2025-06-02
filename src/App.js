@@ -18,7 +18,8 @@ import flower_c from './assets/flower_c.gif';
 import paddle from './assets/paddle.png';
 import muschele from './assets/muschele.png';
 import sunflower from './assets/sunflower.png';
-import abuchstabe from './assets/abuchstabe.png';
+import abuchstabe from './assets/abuchstabe.png'
+import paragraph from './assets/pragraph.png';
 // import jbuchstabe from './assets/jbuchstabe.png'; // jbuchstabe was imported but not used
 
 import './App.css';
@@ -42,6 +43,7 @@ function App() {
     cellImageSrc = abuchstabe;
     themeClass = 'theme-flower';
   } else if (location.pathname.includes('/privacy-policy') || location.pathname.includes('/terms-and-conditions') || location.pathname.includes('/impressum')) {
+    cellImageSrc = paragraph;
     themeClass = 'theme-neutral';
   }
 

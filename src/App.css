@@ -117,16 +117,17 @@
 
 }
 .theme-neutral {
-  --main-bg: #f9f9f9; /* Light background for legal pages */
-  --accent: #333; /* Dark text color */
-  --text: #222; /* Text color */
-  --dialog-bg: rgba(255, 255, 255, 0.9); /* Background for dialogs */
-  --dialog-border: #ccc; /* Border color for dialogs */
-  --dialog-header: #444; /* Header color for dialogs */
-  --container-bg: #f9f9f9; /* Background for containers */
-  --container-text: #222; /* Text color for containers */
-  --border-color: #ddd; /* Border color */
-  --border-shadow: rgba(0, 0, 0, 0.1); /* Shadow color */
+  --main-bg: #fb9261; /* Light background for legal pages */
+  --accent: #8b8b8b; /* Dark text color */
+  --text: #8b8b8b; /* Text color */
+  --dialog-bg: rgba(218, 218, 218, 0.23); /* Background for dialogs */
+  --dialog-progress: #9c9c9c;
+  --dialog-border: #ebeaea; /* Border color for dialogs */
+  --dialog-header: #8b8b8b; /* Header color for dialogs */
+  --container-bg:  #f88049; /* Background for containers */
+  --container-text: #8b8b8b; /* Text color for containers */
+  --border-color: #8b8b8b; /* Border color */
+  --border-shadow: #8b8b8b; /* Shadow color */
 }
 body, html, .App {
   background: var(--main-bg);
