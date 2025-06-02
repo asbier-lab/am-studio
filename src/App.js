@@ -106,12 +106,12 @@ function App() {
               &times;
             </button>
             <nav className="mobile-nav-links">
-              {navLinksContent}
-              {/* Example of adding legal links to mobile menu */}
-              {/* Consider a more structured approach if menu grows */}
-              <li style={{marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--accent)'}}><Link to="/privacy-policy" onClick={() => setMenuOpen(false)}>Privacy</Link></li>
-              <li><Link to="/terms-and-conditions" onClick={() => setMenuOpen(false)}>Terms</Link></li>
-              <li><Link to="/impressum" onClick={() => setMenuOpen(false)}>Impressum</Link></li>
+              <ul>
+                {navLinksContent}
+                <li><Link to="/privacy-policy" onClick={() => setMenuOpen(false)}>PRIVACY</Link></li>
+                <li><Link to="/terms-and-conditions" onClick={() => setMenuOpen(false)}>TERMS & CONDITIONS</Link></li>
+                <li><Link to="/impressum" onClick={() => setMenuOpen(false)}>IMPRESSUM</Link></li>
+              </ul>
             </nav>
           </div>
         )}
