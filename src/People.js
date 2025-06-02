@@ -4,12 +4,12 @@ import person2 from './assets/person2.png';
 
 const teamMembers = [
   {
-    name: "Test Person",
-    role: "Test Role",
+    name: "AM",
+    role: "Creator and Nature Enthusiast",
     image: person1
   },
   {
-    name: "TEST",
+    name: "Blossom Zero",
     role: "Creator and Nature Enthusiast",
     image: person2
   },

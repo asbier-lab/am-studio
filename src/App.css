@@ -643,8 +643,8 @@ p, h3 {
 }
 
 .person-flower-img {
-  width: 120px;
-  height: 180px;
+  width: 220px;
+  height: 300px;
   object-fit: cover;
   border: none;
   border-radius: 0;
@@ -1004,8 +1004,8 @@ header h1 {
     transform: none;
     margin-bottom: 0;
     text-align: center;
-    width: 180px; /* 120px * 1.5 */
-    height: 270px; /* 180px * 1.5 */
+    width: 220px; /* 120px * 1.5 */
+    height: 300px; /* 180px * 1.5 */
     flex-shrink: 0;
   }
 
@@ -1020,7 +1020,6 @@ header h1 {
     color: var(--container-text); /* Use container text color for names */
     background: rgba(0, 0, 0, 0.4); /* Semi-transparent background for readability */
     padding: 3px 8px; /* Padding around the text */
-    border-radius: 4px; /* Slightly rounded corners */
   }
 
   .mobile-flower-layout .person-flower-img {
@@ -1117,4 +1116,5 @@ header h1 {
   .price {
     font-size: 1rem;
   }
+
 
