@@ -12,7 +12,7 @@ import Shop from './shop';
 // Import new legal pages
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsAndConditions from './TermsAndConditions';
-import Impressum from './Impressum';
+
 
 import flower_c from './assets/flower_c.gif';
 import paddle from './assets/paddle.png';
@@ -42,7 +42,7 @@ function App() {
   } else if (location.pathname.includes('shop')) {
     cellImageSrc = abuchstabe;
     themeClass = 'theme-flower';
-  } else if (location.pathname.includes('/privacy-policy') || location.pathname.includes('/terms-and-conditions') || location.pathname.includes('/impressum')) {
+  } else if (location.pathname.includes('/privacy-policy') || location.pathname.includes('/terms-and-conditions')) {
     cellImageSrc = paragraph;
     themeClass = 'theme-neutral';
   }
@@ -112,7 +112,7 @@ function App() {
                 {navLinksContent}
                 <li><Link to="/privacy-policy" onClick={() => setMenuOpen(false)}>PRIVACY</Link></li>
                 <li><Link to="/terms-and-conditions" onClick={() => setMenuOpen(false)}>TERMS & CONDITIONS</Link></li>
-                <li><Link to="/impressum" onClick={() => setMenuOpen(false)}>IMPRESSUM</Link></li>
+               
               </ul>
             </nav>
           </div>
@@ -128,7 +128,7 @@ function App() {
             {/* Add routes for legal pages */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-            <Route path="/impressum" element={<Impressum />} />
+            
           </Routes>
         </main>
         <FloatingDialogue />

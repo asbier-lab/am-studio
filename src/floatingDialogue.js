@@ -51,7 +51,7 @@ const FloatingDialogue = () => {
       <div className="scan-line"></div>
       <div className="dialogue-header">
         <span className="status-text">STATUS: ACTIVE</span>
-        <span className="coordinates">X: 2847 Y: 1924</span>
+        <span className="coordinates">© All Rights Reserved Y: 2025</span>
       </div>
       <div className="dialogue-content">
         <div className="text-display">
