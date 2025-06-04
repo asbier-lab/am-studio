@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import './FloatingDialogue.css';
 
 const questions = [
-    "JEDEM ANFANG WOHNT EIN ZAUBER INNE.",
+  "WHERE DOES MAGIC PLUG IN?",
   "WHO DO YOU HELP?",
   "WHO DO YOU HURT?",
+  "PIXIE DUST ≈ QUANTUM NOISE?",
   "ARE YOU BUILDING OR BORROWING?",
+  "WHAT IS BIO-DESIGN?",
+  "WHAT DOES YELLOW TASTE LIKE?",
   "DO YOU LOVE ANIMALS AND YOU ARE JUST EATING THEM?",
   "CAN YOU SUSTAIN LIFE?",
   "DO YOU KNOW CHANGE?",

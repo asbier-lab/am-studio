@@ -7,6 +7,8 @@ import RotatingTagline from './RotatingTagline';
 import Lineup from './line-up';
 import FloatingDialogue from './floatingDialogue';
 import People from './People';
+import PersonDetail from './PersonDetail';
+
 import CustomCursor from './CustomCursor';
 import Shop from './shop';
 // Import new legal pages
@@ -124,6 +126,8 @@ function App() {
             <Route path="/mission" element={<Mission />} />
             <Route path="/line-up" element={<Lineup />} />
             <Route path="/PeoplePage" element={<People />} />
+            <Route path="/people/:id" element={<PersonDetail />} />
+
             <Route path="/shop" element={<Shop />} />
             {/* Add routes for legal pages */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />

@@ -1,37 +1,44 @@
 import React, { useRef, useState, useEffect } from 'react';
 import person1 from './assets/person1.png';
 import person2 from './assets/person2.png';
+import person3 from './assets/person3.gif';
+import PersonDetail from './PersonDetail'; // neue Detail-Komponente
+
+
 
 const teamMembers = [
   {
+    id: 1,
     name: "AM",
-    role: "Creator and Nature Enthusiast",
-    image: person1
-  },
-  {
-    name: "Blossom Zero",
     role: "Creator and Nature Enthusiast",
     image: person2
   },
   {
-    name: "Blossom One",
+    id: 2,
+    name: "That could be you",
+    role: "Photographer",
+    image: person3
+  },
+  {
+    id: 3,
+    name: "That could be you",
     role: "Petal Designer",
     image: person1
   },
-  {
-    name: "Blossom Two",
+  { id: 4,
+    name: "That could be you",
     role: "Petal Engineer",
     image: person2
   },
-  {
-    name: "Blossom Three",
+  {id: 5,
+    name: "That could be you",
     role: "Petal Artist",
     image: person1
   },
-  {
-    name: "Blossom Four",
+  {id: 6,
+    name: "That could be you",
     role: "Petal Scientist",
-    image: person2
+    image: person1
   }
 ];
 

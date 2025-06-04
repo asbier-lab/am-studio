@@ -1,6 +1,7 @@
 // src/People.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import person1 from './assets/person1.png';
 import './App.css';
 
 const people = [
@@ -8,7 +9,7 @@ const people = [
     id: 1,
     name: 'AM',
     role: 'Creator and Nature Enthusiast',
-    image: 'path/to/person1.jpg',
+    image: person1,
   },
   // Add more people as needed
 ];
