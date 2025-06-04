@@ -18,8 +18,8 @@ const Shop = () => {
       image: lotus
     },
     {
-      name: "A-CLEANER",
-      description: "A biodegradable cleaning brush made from pressed lavender – perfect for fresh, natural porcelain care",
+      name: "Flower",
+      description: "Flower",
       price: "€ UNDEFINED",
       image: yasmin
     }
