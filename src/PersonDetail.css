@@ -1,0 +1,105 @@
+/* src/PersonDetail.css */
+
+.person-detail-container {
+    padding: 20px;
+    max-width: 1400px; /* Breite des Containers */
+    margin: 40px auto; /* Zentriert den Container horizontal */
+    text-align: center; /* Zentriert den Text im Container (falls kein Flex) */
+    border-radius: 8px; /* Leichte Abrundung des Containers */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */ /* Schatten optional */
+    background-color: transparent; /* Hintergrund transparent */
+    color: #ffffff; /* Textfarbe dunkel */
+    border: none; /* Kein Rand für den Container */
+    /* box-shadow: none; */ /* Kein Schatten für den Container */
+  
+    /* --- WICHTIGE FLEXBOX-EIGENSCHAFTEN FÜR ZWEISPALTIGES LAYOUT --- */
+    display: flex; /* Macht den Container zum Flex-Container */
+    flex-direction: row; /* Ordnet die Kind-Elemente nebeneinander an */
+    gap: 60px; /* Abstand zwischen dem Bild und dem Textbereich */
+    align-items: flex-start; /* Richtet die Elemente am oberen Rand aus (Bild und Text beginnen auf gleicher Höhe) */
+    justify-content: center; /* Zentriert die gesamte "Reihe" (Bild + Text) innerhalb des max-width Containers */
+  
+    position: relative; /* Wichtig für die absolute Positionierung des Back-Buttons */
+  
+    /* Media Query für Responsive Design: Auf kleinen Bildschirmen untereinander */
+    @media (max-width: 900px) { /* Angepasster Breakpoint */
+      flex-direction: column; /* Bild und Text untereinander anordnen */
+      align-items: center; /* Zentriert die Elemente horizontal im Spaltenlayout */
+      gap: 30px;
+      padding: 15px;
+    }
+  }
+  
+  .person-detail-image {
+    width: 600px; /* Gewünschte Breite für das Bild */
+    height: 800px; /* Gewünschte Höhe für das Bild (hochformatig) */
+    border-radius: 0; /* Eckiges Bild */
+    object-fit: cover; /* Stellt sicher, dass das Bild den Bereich ausfüllt, ohne verzerrt zu werden */
+    /* border: 3px solid var(--theme-velvet-accent, #8a2be2); /* Optional: Rahmen */
+    flex-shrink: 0; /* Verhindert, dass das Bild schrumpft, wenn Platz eng wird */
+    flex-basis: 600px; /* Setzt die anfängliche Größe des Flex-Items auf die Bildbreite */
+  }
+  
+  .person-detail-text-content {
+    flex-grow: 1; /* Lässt den Textbereich den gesamten verbleibenden Platz in der Reihe einnehmen */
+    flex-shrink: 1; /* Erlaubt dem Textbereich bei Bedarf zu schrumpfen */
+    text-align: left; /* Text linksbündig innerhalb dieser Spalte */
+    max-width: 600px; /* Optional: Eine maximale Breite für den Textblock, um ihn lesbar zu halten */
+    /* Hier muss SICHERGESTELLT SEIN, dass KEIN display: flex oder display: inline-flex gesetzt ist */
+    /* h2 und p sind standardmäßig Block-Elemente und ordnen sich dann untereinander an */
+  }
+  
+  /* Anpassungen für die Textelemente innerhalb des Textbereichs */
+  .person-detail-text-content h2 {
+    font-size: 2.8em; /* Größer für den Namen */
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-family: 'OTNeueMontreal', sans-serif; /* Deine geladene Schriftart */
+    font-weight: 600; /* Medium-Semi-Bold für die Headline */
+    display: block; /* explizit als Block-Element (Standard) */
+  }
+  
+  .person-detail-role {
+    font-size: 1.5em; /* Größer für die Rolle */
+    font-style: italic;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    font-family: 'OTNeueMontreal', sans-serif; /* Deine geladene Schriftart */
+    font-weight: 500; /* Medium für die Rolle */
+    display: block; /* explizit als Block-Element (Standard) */
+  }
+  
+  .person-detail-description {
+    font-size: 1.1em; /* Für gute Lesbarkeit */
+    line-height: 1.8; /* Mehr Zeilenabstand */
+    margin-bottom: 20px;
+    font-family: 'OTNeueMontreal', sans-serif; /* Deine geladene Schriftart */
+    font-weight: 800; /* Normal für die Beschreibung */
+    display: block; /* explizit als Block-Element (Standard) */
+  }
+  
+  /* Stil für den Schließen-Button (Kreuz) */
+  .back-button {
+    position: absolute; /* Positioniert den Button relativ zum .person-detail-container */
+    top: 20px; /* Abstand vom oberen Rand */
+    right: 20px; /* Abstand vom rechten Rand */
+    padding: 0; /* Kein Padding, da wir nur ein Kreuz haben wollen */
+    width: 40px; /* Größe des Buttons/Kreuzes */
+    height: 40px;
+    display: flex; /* Flexbox nutzen, um das Kreuz zu zentrieren */
+    align-items: center;
+    justify-content: center;
+    font-size: 2em; /* Größe des Kreuz-Symbols */
+    background-color: transparent; /* Kein Hintergrund für den Button */
+    color:   #f55882; /* Farbe des Kreuzes (dunkel für hellen Hintergrund) */
+    border: none; /* Kein Rand */
+    cursor: pointer;
+    z-index: 100; /* Stellt sicher, dass der Button über allem liegt */
+    text-decoration: none; /* Entfernt Unterstreichung vom Link */
+    transition: color 0.3s ease; /* Übergang für Hover-Effekt */
+  }
+  
+  .back-button:hover {
+    color: var(--accent, #898989); /* Akzentfarbe beim Hover (kannst du anpassen) */
+  }

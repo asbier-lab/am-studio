@@ -1,46 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
-import person1 from './assets/person1.png';
-import person2 from './assets/person2.png';
-import person3 from './assets/person3.gif';
-import PersonDetail from './PersonDetail'; // neue Detail-Komponente
+import { Link } from 'react-router-dom';
+import { teamMembers } from './data/teamMembersData';
+import './App.css'; // Annahme, dass deine Stile hier sind
 
-
-
-const teamMembers = [
-  {
-    id: 1,
-    name: "AM",
-    role: "Creator and Nature Enthusiast",
-    image: person2
-  },
-  {
-    id: 2,
-    name: "That could be you",
-    role: "Photographer",
-    image: person3
-  },
-  {
-    id: 3,
-    name: "That could be you",
-    role: "Petal Designer",
-    image: person1
-  },
-  { id: 4,
-    name: "That could be you",
-    role: "Petal Engineer",
-    image: person2
-  },
-  {id: 5,
-    name: "That could be you",
-    role: "Petal Artist",
-    image: person1
-  },
-  {id: 6,
-    name: "That could be you",
-    role: "Petal Scientist",
-    image: person1
-  }
-];
 
 // Responsive radius for the circular carousel layout
 const getCircularRadius = () => {
@@ -78,7 +40,12 @@ const People = () => {
 
   // Mouse event handlers for circular layout (Desktop/Tablet)
   const handleMouseDown = (e) => {
-    if (isMobile) return; // Only for desktop/tablet
+    if (isMobile) return;
+    // Wichtig: Verhindere, dass das Ziehen startet, wenn auf einen Link geklickt wird
+    // Prüfe, ob das Klick-Ziel ein Link ist oder in einem Link enthalten ist
+    if (e.target.closest('.person-flower-link, .mobile-link-wrapper')) {
+        return; // Klick wurde auf einen Link gemacht, nicht ziehen
+    }
     dragging.current = true;
     const { centerX, centerY } = getCenterCoordinates(e.currentTarget);
     const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
@@ -108,54 +75,59 @@ const People = () => {
       {isMobile ? (
         // Mobile Layout: Horizontal scrollable list
         <div className="mobile-flower-layout">
-          {teamMembers.map((member, idx) => (
-            <div
-              className="person-flower-img-wrapper mobile"
-              key={idx}
+          {teamMembers.map((member) => ( // Jetzt wird das importierte teamMembers verwendet
+            // Hier den Link um das gesamte Element legen
+            <Link
+              to={`/people/${member.id}`} // <--- Link zur Detailseite
+              key={member.id} // <--- Wichtig: id als key verwenden
+              className="person-flower-img-wrapper mobile mobile-link-wrapper" // 'mobile' Klasse für Styling, 'mobile-link-wrapper' für handleMouseDown
               style={{
-                // Dimensions and flex-shrink are handled by CSS
                 userSelect: 'none',
                 WebkitUserSelect: 'none',
               }}
             >
               <span className="person-flower-name">{member.name}</span>
               <img src={member.image} alt={member.name} className="person-flower-img" draggable={false} />
-            </div>
+            </Link>
           ))}
         </div>
       ) : (
         // Desktop/Tablet Layout: Circular carousel
         <div
-          className="flower-layout"
-          style={{ cursor: 'grab', zIndex: 1 }}
-          onMouseDown={handleMouseDown}
-        >
-          {teamMembers.map((member, idx) => {
-            const angle = (2 * Math.PI / teamMembers.length) * idx - Math.PI / 2 + rotation;
-            const x = Math.cos(angle) * currentCircularRadius.current;
-            const y = Math.sin(angle) * currentCircularRadius.current;
+        className="flower-layout"
+        style={{ cursor: 'grab', zIndex: 1 }}
+        onMouseDown={handleMouseDown}
+      >
+        {teamMembers.map((member) => { // Jetzt wird das importierte teamMembers verwendet
+          // Verwende member.id - 1 für den Index, da IDs bei 1 beginnen und Array-Indizes bei 0
+          const angle = (2 * Math.PI / teamMembers.length) * (member.id - 1) - Math.PI / 2 + rotation;
+          const x = Math.cos(angle) * currentCircularRadius.current;
+          const y = Math.sin(angle) * currentCircularRadius.current;
 
-            const unit = 'vh';
+          const unit = 'vh';
 
-            return (
-              <div
-                className="person-flower-img-wrapper"
-                key={idx}
-                style={{
-                  position: 'absolute',
-                  left: `calc(50% + ${x}${unit} - 60px)`,
-                  top: `calc(50% + ${y}${unit} - 90px)`,
-                  width: '120px',
-                  height: '180px',
-                  userSelect: 'none',
-                  WebkitUserSelect: 'none',
-                  transform: 'translateZ(0)',
-                }}
-              >
-                <span className="person-flower-name">{member.name}</span>
-                <img src={member.image} alt={member.name} className="person-flower-img" draggable={false} />
-              </div>
-            );
+          return (
+            <div
+            className="person-flower-img-wrapper"
+            key={member.id} // <--- Wichtig: id als key verwenden
+            style={{
+              position: 'absolute',
+              left: `calc(50% + ${x}${unit} - 60px)`,
+              top: `calc(50% + ${y}${unit} - 90px)`,
+              width: '120px',
+              height: '180px',
+              userSelect: 'none',
+              WebkitUserSelect: 'none',
+              transform: 'translateZ(0)',
+            }}
+          >
+            {/* Hier den Link um das klickbare Bild und den Namen legen */}
+            <Link to={`/people/${member.id}`} className="person-flower-link">
+              <span className="person-flower-name">{member.name}</span>
+              <img src={member.image} alt={member.name} className="person-flower-img" draggable={false} />
+            </Link>
+          </div>
+        );
           })}
         </div>
       )}

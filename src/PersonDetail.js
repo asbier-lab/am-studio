@@ -1,32 +1,42 @@
-// src/People.js
+// src/PersonDetail.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import person1 from './assets/person1.png';
-import './App.css';
+import { useParams, Link } from 'react-router-dom';
+import './PersonDetail.css';
+import { teamMembers } from './data/teamMembersData'; 
 
-const people = [
-  {
-    id: 1,
-    name: 'AM',
-    role: 'Creator and Nature Enthusiast',
-    image: person1,
-  },
-  // Add more people as needed
-];
 
-const People = () => {
+const PersonDetail = () => {
+  const { id } = useParams(); // Holt die ID aus der URL
+  // Finde die Person anhand der ID. parseInt ist wichtig, da id aus useParams ein String ist.
+  const person = teamMembers.find((member) => member.id === parseInt(id));
+
+  if (!person) {
+    return (
+      <div className="person-detail-container">
+        <h1>Person nicht gefunden.</h1>
+        <Link to="/people">Zurück zur Teamübersicht</Link>
+      </div>
+    );
+  }
+
   return (
-    <div className="people-slider">
-      {people.map((person) => (
-        <div key={person.id} className="person-card">
-          <Link to={`/people/${person.id}`}>
-            <img src={person.image} alt={person.name} className="person-image" />
-            <h3>{person.name}</h3>
-          </Link>
+
+      <div className="person-detail-container">
+        {/* Der Schließen-Button - er wird absolut positioniert */}
+        <Link to="/PeoplePage" className="back-button">✖</Link> 
+  
+        {/* Das Bild - Erstes Flex-Item */}
+        <img src={person.image} alt={person.name} className="person-detail-image" />
+  
+        {/* Der Textinhalt-Wrapper - Zweites Flex-Item */}
+        <div className="person-detail-text-content"> {/* <-- NEU: Wrapper für den gesamten Textblock */}
+          <h2>{person.name}</h2>
+          <p className="person-detail-role">{person.role}</p>
+          <p className="person-detail-description">{person.description}</p>
+          {/* Füge hier weitere Details hinzu */}
         </div>
-      ))}
-    </div>
+        </div>
   );
 };
 
-export default People;
+export default PersonDetail;

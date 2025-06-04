@@ -32,22 +32,27 @@ function App() {
 
   let cellImageSrc = sunflower;
   let themeClass = '';
-  if (location.pathname.includes('PeoplePage')) {
-    cellImageSrc = paddle;
-    themeClass = 'theme-velvet';
-  } else if (location.pathname.includes('mission')) {
-    cellImageSrc = muschele;
-    themeClass = 'theme-moss';
-  } else if (location.pathname.includes('line-up')) {
-    cellImageSrc = flower_c;
-    themeClass = 'theme-glass';
-  } else if (location.pathname.includes('shop')) {
-    cellImageSrc = abuchstabe;
-    themeClass = 'theme-flower';
-  } else if (location.pathname.includes('/privacy-policy') || location.pathname.includes('/terms-and-conditions')) {
-    cellImageSrc = paragraph;
-    themeClass = 'theme-neutral';
-  }
+ // Korrigierter Bedingungsblock
+ if (location.pathname.includes('PeoplePage') || location.pathname.startsWith('/people/')) {
+  // Diese Bedingung fängt sowohl /PeoplePage als auch /people/:id ab
+  cellImageSrc = paddle;
+  themeClass = 'theme-velvet';
+} else if (location.pathname.includes('mission')) {
+  cellImageSrc = muschele;
+  themeClass = 'theme-moss';
+} else if (location.pathname.includes('line-up')) {
+  cellImageSrc = flower_c;
+  themeClass = 'theme-glass';
+} else if (location.pathname.includes('shop')) {
+  cellImageSrc = abuchstabe;
+  themeClass = 'theme-flower';
+} else if (location.pathname.includes('/privacy-policy') || location.pathname.includes('/terms-and-conditions')) {
+  cellImageSrc = paragraph;
+  themeClass = 'theme-neutral';
+}
+// Der alte, separate 'if (location.pathname.includes('PeopleDetail'))' Block
+// wird HIER NICHT MEHR BENÖTIGT und muss entfernt werden.
+
 
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);

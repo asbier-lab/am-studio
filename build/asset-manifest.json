@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/am-studio/static/css/main.4ef7cd1d.css",
-    "main.js": "/am-studio/static/js/main.ad862eb7.js",
+    "main.js": "/am-studio/static/js/main.53515d38.js",
     "static/js/488.be3a6848.chunk.js": "/am-studio/static/js/488.be3a6848.chunk.js",
+    "static/media/person3.gif": "/am-studio/static/media/person3.bd08db648ea9fed812e5.gif",
     "static/media/flower_c.gif": "/am-studio/static/media/flower_c.a85ab325275a7c111187.gif",
     "static/media/kopf.png": "/am-studio/static/media/kopf.039a9f9bfd4e5672d308.png",
     "static/media/burn.png": "/am-studio/static/media/burn.c3d05bb6869a04bf2265.png",
     "static/media/lotus.png": "/am-studio/static/media/lotus.bbbb7699120bd0c192a0.png",
-    "static/media/person2.png": "/am-studio/static/media/person2.c13f797a9ed220f11ebe.png",
     "static/media/mission.jpg": "/am-studio/static/media/mission.ddc8f113ec6df5f7c757.jpg",
     "static/media/person1.png": "/am-studio/static/media/person1.342884d143af48f71d3e.png",
     "static/media/paddle.png": "/am-studio/static/media/paddle.c600e9d3bfcef456c4d5.png",
@@ -23,11 +23,11 @@
     "static/media/abuchstabe.png": "/am-studio/static/media/abuchstabe.564a8d2787b3fa320ca5.png",
     "index.html": "/am-studio/index.html",
     "main.4ef7cd1d.css.map": "/am-studio/static/css/main.4ef7cd1d.css.map",
-    "main.ad862eb7.js.map": "/am-studio/static/js/main.ad862eb7.js.map",
+    "main.53515d38.js.map": "/am-studio/static/js/main.53515d38.js.map",
     "488.be3a6848.chunk.js.map": "/am-studio/static/js/488.be3a6848.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4ef7cd1d.css",
-    "static/js/main.ad862eb7.js"
+    "static/js/main.53515d38.js"
   ]
 }
