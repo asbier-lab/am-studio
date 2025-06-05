@@ -3,6 +3,8 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './PersonDetail.css';
 import { teamMembers } from './data/teamMembersData'; 
+import './App.css';
+import './PersonDetail.css';
 
 
 const PersonDetail = () => {

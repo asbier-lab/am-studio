@@ -8,3 +8,85 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+.mobile-flower-layout .person-flower-img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+}
+
+.product-image {
+  aspect-ratio: 1; /* Keep square aspect ratio */
+  max-height: 300px; /* Maximum height on mobile */
+}
+
+.products-grid {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 2rem;
+  padding: 0.8rem 1.5rem;
+  margin-top: 2rem;
+  width: 100%;
+  cursor: grab;
+}
+
+.product-card {
+  flex: 0 0 80%;
+  max-width: 500px;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 0.5rem;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+}
+
+.product-image {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-details {
+  text-align: left;
+  padding: 2.5rem 2.5rem;
+  margin-left: 2.5rem;
+}
+
+/* Optional: Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .product-card {
+    flex: 0 0 95%;
+    padding: 0 0.2rem;
+  }
+  .product-details {
+    padding: 0.5rem 0.2rem;
+    margin-left: 1rem;
+  }
+  .product-image {
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    flex: 0 0 100%;
+  }
+  .product-details {
+    margin-left: 1rem;
+  }
+}

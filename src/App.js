@@ -8,13 +8,12 @@ import Lineup from './line-up';
 import FloatingDialogue from './floatingDialogue';
 import People from './People';
 import PersonDetail from './PersonDetail';
-
-import CustomCursor from './CustomCursor';
 import Shop from './shop';
-// Import new legal pages
+import ShopDetail from './shopDetail';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsAndConditions from './TermsAndConditions';
 
+import CustomCursor from './CustomCursor';
 
 import flower_c from './assets/flower_c.gif';
 import paddle from './assets/paddle.png';
@@ -44,6 +43,9 @@ function App() {
   cellImageSrc = flower_c;
   themeClass = 'theme-glass';
 } else if (location.pathname.includes('shop')) {
+  cellImageSrc = abuchstabe;
+  themeClass = 'theme-flower';
+} else if (location.pathname.startsWith('/shop/')) {
   cellImageSrc = abuchstabe;
   themeClass = 'theme-flower';
 } else if (location.pathname.includes('/privacy-policy') || location.pathname.includes('/terms-and-conditions')) {
@@ -134,6 +136,7 @@ function App() {
             <Route path="/people/:id" element={<PersonDetail />} />
 
             <Route path="/shop" element={<Shop />} />
+            <Route path="/shop/:id" element={<ShopDetail />} />
             {/* Add routes for legal pages */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />

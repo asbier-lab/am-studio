@@ -103,3 +103,20 @@
   .back-button:hover {
     color: var(--accent, #898989); /* Akzentfarbe beim Hover (kannst du anpassen) */
   }
+
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .person-detail-container {
+        flex-direction: column; /* Stack image and text on smaller screens */
+        align-items: center; /* Center items */
+    }
+
+    .person-detail-image {
+        margin-bottom: 20px; /* Space below the image */
+    }
+
+    .back-button {
+        top: 10px; /* Adjust position for smaller screens */
+        right: 10px; /* Adjust position for smaller screens */
+    }
+  }

@@ -13,6 +13,13 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'OTNeueMontreal';
+  src: url('./fonts/OTNeueMontreal-MediumSemiSqueezed.otf') format('opentype');
+  font-weight: 400; /* medium */
+  font-style: normal;
+  font-display: swap;
+}
 
 @font-face {
   font-family: 'OTNeueMontreal';
@@ -52,7 +59,6 @@
 
 /* App.css *//* App.css */
 :root {
-
   --main-bg: #499bff;
   --accent: #c5d2e1d2;
   --text: #5bc0ff;
@@ -65,6 +71,7 @@
   --container-text: #5bb3f1;
   --border-color: #187ffc;
   --border-shadow: #97c0f762;
+  --side-padding: 2vw;
 }
 
 .theme-moss {
@@ -287,12 +294,13 @@ p, h3 {
 .desktop-nav {
   max-width: calc(100vw - 0.6rem);
   margin: 0.03rem auto 0 auto;
+  position: -webkit-sticky; /* Safari/iOS Support */
   position: sticky;         /* Standard */
   top: 0.1rem;
   left: 0;
   right: 0;
   background: rgba(255, 255, 255, 0.148);
-  -webkit-backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Safari/iOS Support */
   backdrop-filter: blur(8px);
   z-index: 1001;
   display: flex !important; /* Force display flex for desktop */
@@ -490,25 +498,7 @@ p, h3 {
     0 0 18px var(--accent),
     0 0 20px var(--accent);
 }
-/* Shop Slider Styles */
-.products-grid {
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  gap: 2rem;
-  z-index: 2; /* Below the h2 text */
-  margin-top: 0; /* Remove top margin to allow overlap */
-  padding-top: 3rem; /* Add padding to create space for overlapped title */
-  width: calc(100% - 4rem); /* Account for padding */
-}
-
-.products-grid::-webkit-scrollbar {
-  display: none; /* Hide scrollbar Chrome/Safari/Webkit */
-}
-/* Update the products-grid to make it feel more interactive */
+/* Shop Slider Styles - exakt wie auf der Live-Seite */
 .products-grid {
   display: flex;
   flex-direction: row;
@@ -516,56 +506,54 @@ p, h3 {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  gap: 2rem;
-  padding: 2rem 1.5rem; /* Changed from padding: 2rem; */
-  margin-top: 2rem;
-  width: 100%;
-  cursor: grab;
+  gap: 2vw;
+  padding: 0 var(--side-padding);
+  width: 100vw;
+  box-sizing: border-box;
 }
 .products-grid:active {
   cursor: grabbing;
 }
+.products-grid::-webkit-scrollbar {
+  display: none;
+}
 
-/* Make it an endless carousel by adjusting the product-card */
 .product-card {
-  flex: 0 0 80%;
+  flex: 0 0 80vw;
   max-width: 500px;
+  min-width: 260px;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 0 0.5rem; /* Add horizontal padding */
+  gap: 1vw;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
   position: relative;
   z-index: 2;
-}
-
-/* Optional: Add smooth transition when hovering over cards */
-.product-card {
   transition: transform 0.3s ease;
 }
-
 .product-card:hover {
   transform: scale(1.02);
 }
+
 .product-image {
   width: 100%;
   aspect-ratio: 1;
   overflow: hidden;
 }
-
-.product-image {
+.product-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  display: block;
 }
 
 .product-details {
   text-align: left;
-  padding: 2.5rem 2.5rem;
-  margin-left: 2.5rem; /* Add consistent left spacing */
+  padding: 0 var(--side-padding);
+  margin: 0;
 }
-
-/* Adjust text spacing inside product card */
 .product-details h3,
 .product-details p,
 .price {
@@ -574,39 +562,42 @@ p, h3 {
 .product-details h3 {
   color: var(--text);
   font-family: 'OTNeueMontreal', sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 500;
-  margin: 0 0 0 0;
+  margin: 0 0 0.2em 0;
 }
-
 .product-details p {
   color: #666;
   font-family: 'OTNeueMontreal', sans-serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 400;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.8em 0;
   line-height: 1.4;
 }
-
 .price {
   color: var(--text);
   font-family: 'OTNeueMontreal', sans-serif;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1rem;
   display: block;
 }
-/* Content */
-.content {
-  margin-top: 0;
-  padding: 0;
-  /* font-size: 3rem; Removed as it's likely not intended for the container itself */
-  /* height: 100vh; Removed as it conflicts with parent .App's height and flex-grow */
-  overflow: hidden; /* Keep overflow hidden for the main content area */
-  flex-grow: 1; /* Make it take all available vertical space */
-  display: flex; /* Make it a flex container */
-  flex-direction: column; /* Stack children vertically */
-  justify-content: center; /* Center content vertically within this area */
-  align-items: center; /* Center content horizontally within this area */
+
+@media (max-width: 768px) {
+  .products-grid {
+    padding: 2rem 1rem;
+  }
+
+  .product-card {
+    flex: 0 0 90%;
+  }
+
+  .product-title {
+    font-size: 1.8rem;
+  }
+
+  .product-description {
+    font-size: 1rem;
+  }
 }
 
 /* People Page Styles */
@@ -852,6 +843,7 @@ header h1 {
   width: 100%;
   height: 100%;
   background: var(--dialog-bg); /* Use theme dialog background */
+  -webkit-backdrop-filter: blur(10px); /* Safari/iOS Support */
   backdrop-filter: blur(10px); /* Stronger blur for overlay */
   z-index: 10999;
   display: flex; /* Use flex to center content */
@@ -1037,42 +1029,7 @@ header h1 {
 
 
 
-  .products-grid {
-    padding-top: 2rem; /* Less padding on very small devices */
-   padding: 0.8rem 1.5rem;
-  }
 
-  .product-card {
-    flex: 0 0 95%; /* Take up more width on very small devices */
-    margin: 0; /* Remove margins */
-    padding: 0 0.2rem; /* Minimal padding */
-  }
-
- .product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Changed from 'cover' to 'contain' */
-}
-
-  .product-details {
-    padding: 0.5rem 0.2rem;
-    margin-left: 1rem;
-  }
-
-  .product-details h3 {
-    font-size: 1rem;
-    margin-bottom: 0.2rem;
-  }
-
-  .product-details p {
-    font-size: 1rem;
-    line-height: 1.2;
-    margin-bottom: 0.3rem;
-  }
-
-  .price {
-    font-size: 1rem;
-  }
 
 @media (max-width: 480px) {
   .mission-container h2,
@@ -1094,27 +1051,33 @@ header h1 {
   }
 }
 
-.products-grid {
-    padding: 0.8rem 1.5rem; /* Changed from padding: 0.5rem; */
-    padding-top: 2rem; /* This specific padding-top remains */
-  }
 
-  .product-card {
-    flex: 0 0 100%; /* Full width on very small devices */
-  }
 
-  .product-details h3 {
-    font-size: 1rem;
-  }
 
-  .product-details p {
-    font-size: 1rem;
-  }
-.product-details  {
-    margin-left: 1rem;
-  }
-  .price {
-    font-size: 1rem;
-  }
+
+.dialog {
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--dialog-title);
+  background: var(--dialog-bg, rgba(255,255,255,0.05));
+  border: 1px solid var(--dialog-close-border, #bdbdbd);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem;
+  box-shadow: 0 4px 12px var(--dialog-shadow, #bdbdbd44);
+  max-width: 600px;
+  position: relative;
+  -webkit-backdrop-filter: blur(12px); /* Safari/iOS Support */
+  backdrop-filter: blur(12px);
+  transform: translateZ(0);
+}
+
+.product-details h3,
+.product-details p,
+.product-details .price {
+  font-size: 0.6rem !important;
+}
 
 
