@@ -1,15 +1,14 @@
 // src/App.js
 import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { CartProvider } from './CartContext';
 import CellSketch from './CellSketch';
 import Mission from './mission';
 import RotatingTagline from './RotatingTagline';
 import Lineup from './line-up';
 import FloatingDialogue from './floatingDialogue';
 import People from './People';
-import PersonDetail from './PersonDetail';
 import Shop from './shop';
-import ShopDetail from './shopDetail';
 import PrivacyPolicy from './PrivacyPolicy';
 import TermsAndConditions from './TermsAndConditions';
 
@@ -133,10 +132,7 @@ function App() {
             <Route path="/mission" element={<Mission />} />
             <Route path="/line-up" element={<Lineup />} />
             <Route path="/PeoplePage" element={<People />} />
-            <Route path="/people/:id" element={<PersonDetail />} />
-
             <Route path="/shop" element={<Shop />} />
-            <Route path="/shop/:id" element={<ShopDetail />} />
             {/* Add routes for legal pages */}
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
@@ -151,9 +147,11 @@ function App() {
 
 function AppWithRouter() {
   return (
-    <Router>
-      <App />
-    </Router>
+    <CartProvider>
+      <Router>
+        <App />
+      </Router>
+    </CartProvider>
   );
 }
 

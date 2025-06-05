@@ -1,0 +1,391 @@
+/* src/ShoppingCart.css */
+
+.cart-toggle-button {
+  position: fixed;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  color: var(--main-bg);
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.cart-toggle-button:hover {
+  background: var(--text);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #ff4757;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: calc(40vh + 50px);
+  background: var(--main-bg);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 20px 20px;
+  z-index: 1000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-sidebar-open {
+  transform: translateX(0);
+}
+
+.cart-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--accent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--container-bg);
+}
+
+.cart-header h3 {
+  margin: 0;
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.5rem;
+}
+
+.cart-close-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.cart-close-button:hover {
+  background: var(--accent);
+  color: var(--main-bg);
+}
+
+.cart-content {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* Empty Cart Styles */
+.empty-cart {
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.empty-cart-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.empty-cart h4 {
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 10px 0;
+}
+
+.empty-cart p {
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+  opacity: 0.7;
+  margin: 0;
+}
+
+/* Cart Items */
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--accent);
+  position: relative;
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item-image {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cart-item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-item-details {
+  flex: 1;
+}
+
+.cart-item-details h4 {
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 0 0 5px 0;
+}
+
+.cart-item-price {
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin: 0 0 10px 0;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-btn {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.quantity-btn:hover {
+  background: var(--accent);
+  color: var(--main-bg);
+}
+
+.quantity {
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-weight: 500;
+  color: var(--text);
+  min-width: 20px;
+  text-align: center;
+}
+
+.remove-item-btn {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  width: 25px;
+  height: 25px;
+  border: none;
+  background: transparent;
+  color: #ff4757;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.remove-item-btn:hover {
+  background: #ff4757;
+  color: white;
+}
+
+/* Cart Footer */
+.cart-footer {
+  border-top: 2px solid var(--accent);
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.cart-total {
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-size: 1.2rem;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cart-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.clear-cart-btn,
+.checkout-btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 25px;
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-cart-btn {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.clear-cart-btn:hover {
+  background: var(--accent);
+  color: var(--main-bg);
+}
+
+.checkout-btn {
+  background: var(--accent);
+  color: var(--main-bg);
+}
+
+.checkout-btn:hover {
+  background: var(--text);
+  transform: translateY(-2px);
+}
+
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Animations */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .cart-sidebar {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .cart-toggle-button {
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .cart-count {
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+  }
+
+  .empty-cart h4 {
+    font-size: 1.3rem;
+  }
+
+  .empty-cart p {
+    font-size: 0.9rem;
+  }
+
+  .cart-item {
+    gap: 10px;
+    padding: 12px 0;
+  }
+
+  .cart-item-image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cart-item-details h4 {
+    font-size: 0.9rem;
+  }
+
+  .cart-item-price {
+    font-size: 0.8rem;
+  }
+
+  .quantity-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+  }
+} 
