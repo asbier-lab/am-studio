@@ -49,8 +49,8 @@ const ProductModal = ({ product, isOpen, onClose, onNext, onPrev, hasNext, hasPr
   return (
     <div className="product-modal-overlay" onClick={handleOverlayClick}>
       <div className="product-modal-content">
-        <button className="modal-close-button" onClick={onClose}>
-          ✖
+        <button className="modal-close-button" onClick={onClose} aria-label="Close">
+          &times;
         </button>
         
         {/* Navigation arrows */}

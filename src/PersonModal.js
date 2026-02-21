@@ -31,8 +31,8 @@ const PersonModal = ({ person, isOpen, onClose, onNext, onPrev, hasNext, hasPrev
   return (
     <div className="person-modal-overlay" onClick={handleOverlayClick}>
       <div className="person-modal-content">
-        <button className="modal-close-button" onClick={onClose}>
-          ✖
+        <button className="modal-close-button" onClick={onClose} aria-label="Close">
+          &times;
         </button>
         
         {/* Navigation arrows */}

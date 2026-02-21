@@ -1,59 +1,53 @@
 // src/data/teamMembersData.js
 
-// Bilder importieren: Die Pfade müssen relativ zur teamMembersData.js-Datei sein.
-// Da diese Datei im Unterordner 'data' liegt und die Bilder in 'assets',
-// müssen wir mit '../' einen Ordner hochgehen.
-import person1 from '../assets/person1.png';
-import person2 from '../assets/person2.png';
-import person3 from '../assets/person3.gif';
+import teamGif from '../assets/person3.gif';
 
 export const teamMembers = [
   {
     id: 1,
     name: "AM",
     role: "Creator and Nature Enthusiast",
-    image: person2, // Stelle sicher, dass dies das korrekte Bild für AM ist
-    description: "AM ist die Visionärin hinter diesem Projekt, die ihre künstlerische Ader mit einer tiefen Liebe zur Natur verbindet. Sie konzentriert sich auf die Schaffung einzigartiger, von der Natur inspirierter Designs und Erlebnisse."
+    image: teamGif,
+    description: "AM is the visionary behind this project, combining her artistic sensibility with a deep love of nature. She focuses on creating unique, nature-inspired designs and experiences."
   },
   {
     id: 2,
     name: "That could be you",
     role: "Photographer",
-    image: person3,
-    description: "Bist du ein erfahrener Fotograf mit einer Leidenschaft für das Festhalten der Schönheit der Natur? Werde Teil unseres Teams, um unsere Kreationen durch atemberaubende Bilder zu verewigen!"
+    image: teamGif,
+    description: "Are you an experienced photographer with a passion for capturing the beauty of nature? Join our team to immortalise our creations through stunning imagery."
   },
   {
     id: 3,
     name: "That could be you",
     role: "Petal Designer",
-    image: person1,
-    description: "Lass deiner Kreativität als Petal Designer freien Lauf! Forme und gestalte unsere einzigartigen Blütenblätter und verwandle sie in komplizierte Kunstwerke, die natürliche Eleganz widerspiegeln."
+    image: teamGif,
+    description: "Give your creativity free rein as a Petal Designer. Shape and craft our unique petals and turn them into intricate works of art that reflect natural elegance."
   },
   {
     id: 4,
     name: "That could be you",
     role: "Petal Engineer",
-    image: person2,
-    description: "Hast du ein Auge für Präzision und Struktur? Als Petal Engineer bist du verantwortlich für die strukturelle Integrität und die innovativen Mechanismen unserer Blütenblatt-Designs."
+    image: teamGif,
+    description: "Do you have an eye for precision and structure? As a Petal Engineer you are responsible for the structural integrity and innovative mechanisms of our petal designs."
   },
   {
     id: 5,
     name: "That could be you",
     role: "Petal Artist",
-    image: person1,
-    description: "Erwecke Farben und Texturen als Petal Artist zum Leben. Dein Feingefühl verleiht Tiefe und Lebendigkeit, sodass jedes Blütenblatt zu einem kleinen Meisterwerk wird."
+    image: teamGif,
+    description: "Bring colours and textures to life as a Petal Artist. Your sensitivity lends depth and vitality so that each petal becomes a small masterpiece."
   },
   {
     id: 6,
     name: "That could be you",
     role: "Petal Scientist",
-    image: person1,
-    description: "Tauche ein in die Wissenschaft hinter unseren Blütenblättern! Als Petal Scientist erforschst und entwickelst du neue Materialien und Techniken, um Haltbarkeit und Schönheit zu verbessern."
+    image: teamGif,
+    description: "Dive into the science behind our petals. As a Petal Scientist you research and develop new materials and techniques to improve durability and beauty."
   }
 ];
 
-// Optional: Eine Helferfunktion, die die Suche nach einer Person erleichtert
-// Du kannst diese in PersonDetail.js verwenden, statt selbst zu filtern.
+// Helper to find a team member by id.
 export const getPersonById = (id) => {
     return teamMembers.find(member => member.id === parseInt(id));
 };

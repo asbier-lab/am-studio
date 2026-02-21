@@ -27,65 +27,58 @@
   overflow: hidden;
 }
 
-/* Modal close button - shared styles */
-.modal-close-button {
+/* Modal close button – no circle, × only, centred at top */
+.person-modal-content .modal-close-button {
   position: absolute;
-  top: 20px;
+  top: 1rem;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--accent);
+  background: none;
   border: none;
-  color: var(--main-bg);
-  font-size: 18px;
+  font-size: 2rem;
+  color: var(--accent);
   cursor: pointer;
   z-index: 1001;
+  padding: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: color 0.2s ease;
 }
 
-.modal-close-button:hover {
-  background: var(--text);
-  transform: translateX(-50%) scale(1.1);
+.person-modal-content .modal-close-button:hover {
+  color: var(--text);
 }
 
-/* Navigation arrows */
-.modal-nav-button {
+/* Navigation arrows – no circles, light red by default, white on hover */
+.person-modal-content .modal-nav-button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.7);
+  background: none;
   border: none;
-  color: white;
-  font-size: 24px;
+  color: #e88a9a;
+  font-size: 2.5rem;
   cursor: pointer;
   z-index: 1002;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  transition: color 0.2s ease;
 }
 
-.modal-nav-prev {
+.person-modal-content .modal-nav-prev {
   left: 20px;
 }
 
-.modal-nav-next {
+.person-modal-content .modal-nav-next {
   right: 20px;
 }
 
-.modal-nav-button:hover {
-  background: var(--accent);
-  transform: translateY(-50%) scale(1.1);
+.person-modal-content .modal-nav-button:hover {
+  color: #fff;
 }
 
 /* Navigation indicators */
@@ -93,14 +86,15 @@
   margin-top: 30px;
   padding-top: 20px;
   border-top: 1px solid var(--accent);
-  opacity: 0.6;
 }
 
 .nav-indicator-text {
-  font-family: 'OTNeueMontreal', sans-serif;
-  font-size: 0.85rem;
-  color: var(--text);
-  font-style: italic;
+  font-family: 'OTNeueMontreal-MediumSemiSqueezed', 'OTNeueMontreal', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  color: #e88a9a;
+  font-style: normal;
 }
 
 .person-modal-container {
@@ -133,34 +127,40 @@
   flex: 1;
   max-width: 500px;
   text-align: left;
+  font-family: 'OTNeueMontreal-MediumExtraSqueezed', 'OTNeueMontreal', sans-serif;
+  letter-spacing: 0.08em;
+  color: #e88a9a;
 }
 
 .person-modal-text-content h2 {
   font-size: 2.5rem;
   margin: 0 0 15px 0;
   line-height: 1.2;
-  font-family: 'OTNeueMontreal', sans-serif;
+  font-family: inherit;
   font-weight: 600;
-  color: var(--text);
+  letter-spacing: inherit;
+  color: #f55882;
 }
 
 .person-modal-role {
   font-size: 1.3rem;
   font-style: italic;
   margin-bottom: 25px;
-  opacity: 0.8;
-  font-family: 'OTNeueMontreal', sans-serif;
+  opacity: 0.95;
+  font-family: inherit;
   font-weight: 500;
-  color: var(--accent);
+  letter-spacing: inherit;
+  color: #e88a9a;
 }
 
 .person-modal-description {
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 20px;
-  font-family: 'OTNeueMontreal', sans-serif;
+  font-family: inherit;
   font-weight: 400;
-  color: var(--text);
+  letter-spacing: inherit;
+  color: #e88a9a;
 }
 
 /* Animations */
@@ -209,21 +209,21 @@
   }
 
   /* Mobile navigation arrows */
-  .modal-nav-button {
+  .person-modal-content .modal-nav-button {
     width: 40px;
     height: 40px;
     font-size: 20px;
   }
 
-  .modal-nav-prev {
+  .person-modal-content .modal-nav-prev {
     left: 10px;
   }
 
-  .modal-nav-next {
+  .person-modal-content .modal-nav-next {
     right: 10px;
   }
 
   .nav-indicator-text {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
 } 

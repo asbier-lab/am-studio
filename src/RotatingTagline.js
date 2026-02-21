@@ -1,17 +1,7 @@
 // RotatingTagline.jsx
 import React, { useState, useEffect } from 'react';
+import { taglinePhrases as phrases } from './taglinePhrases';
 import './App.css';
-
-const phrases = [
-  "JEDEM ANFANG WOHNT EIN ZAUBER INNE.",
-  "RECURSIVE DESIGN","PROCESS ZONE",
-  "TINKERBELL WAS AN ENGINEER.",
-  "FORM FOLLOWS PHOTOSYNTHESIS.",
-  "TRUTH EMERGES THROUGH CONVERSATION, NOT THROUGH MONOLOGUE.",
-  "IMAGINATION IS THE ONLY WEAPON IN THE WAR AGAINST REALITY.",
-  "CHAOS IS JUST PATTERN UNREAD.",
-  "IS IT ALIVE OR JUST NEW?"
-];
 
 const RotatingTagline = ({ interval = 4000 }) => {
   const [index, setIndex] = useState(0);

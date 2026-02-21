@@ -4,7 +4,6 @@ import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-ro
 import { CartProvider } from './CartContext';
 import CellSketch from './CellSketch';
 import Mission from './mission';
-import RotatingTagline from './RotatingTagline';
 import Lineup from './line-up';
 import FloatingDialogue from './floatingDialogue';
 import People from './People';
@@ -13,6 +12,7 @@ import PrivacyPolicy from './PrivacyPolicy';
 import TermsAndConditions from './TermsAndConditions';
 
 import CustomCursor from './CustomCursor';
+import LoadingScreen from './LoadingScreen';
 
 import flower_c from './assets/flower_c.gif';
 import paddle from './assets/paddle.png';
@@ -27,6 +27,7 @@ import './App.css';
 function App() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   let cellImageSrc = sunflower;
   let themeClass = '';
@@ -86,16 +87,16 @@ function App() {
 
   return (
     <>
+      {loading && <LoadingScreen onComplete={() => setLoading(false)} />}
       <CellSketch cellImageSrc={cellImageSrc} />
       <CustomCursor />
       <div className={`App ${themeClass}`}>
         <header>
-          <h1>
+          <h1 className="header-corner">
             <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }} onClick={() => setMenuOpen(false)}>
-              AM-STUDIO FOR LIVING MATTER
+              AM STUDIO
             </Link>
           </h1>
-          <RotatingTagline />
           <button
             className="mobile-menu-toggle"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}

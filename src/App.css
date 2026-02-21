@@ -258,6 +258,63 @@ a {
   );
 }
 
+/* Loading screen (melboucierayane-style) – logo colour: grey beige */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e1dc;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+.loading-screen-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.loading-screen-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.loading-screen-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+.loading-screen-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading-screen-logo img {
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+}
+.loading-screen-title {
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #5c5752;
+  margin: 0;
+}
+.loading-screen-sentence {
+  font-family: 'OTNeueMontreal', sans-serif;
+  font-size: 0.9rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: #6b6560;
+  margin: 0;
+  min-height: 1.4em;
+  text-align: center;
+  max-width: 90vw;
+  transition: opacity 0.4s ease;
+}
+
 /* Konsistente Typografie */
 h1 {
   font-size: 2.5rem;
@@ -337,7 +394,7 @@ p, h3 {
   font-size: 0.8rem;
   color: var(--accent, #8B4513);
   text-decoration: none;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.08em;
   padding: 0.4rem 0.4rem;
   border-radius: 1px;
   background: none;
@@ -346,7 +403,7 @@ p, h3 {
 }
 
 .desktop-nav ul li a:hover, .desktop-nav ul li .active {
-  color: var(--main-bg, #fdeacc);
+  color: #eafbe0; /* light green for readability on dark hover background */
   background: var(--accent, #8B4513);
   border-radius: 3px;
   padding: 0.4rem 0.4rem;
@@ -362,15 +419,20 @@ p, h3 {
   margin: 0 auto;
   text-align: center;
   color: var(--container-text);
-  font-family: 'OTNeueMontreal', sans-serif;
+  font-family: 'OTNeueMontreal-MediumExtraSqueezed', sans-serif;
+  letter-spacing: 0.1em;
   background: var(--container-bg);
   min-height: 300px;
 }
 
 .line-up h2 {
-  font-size: clamp(3rem, 7vw, 7rem);
-  line-height: 1.2;
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  line-height: 1.1;
+  letter-spacing: clamp(0.3rem, 0.8vw, 1rem);
   margin-left: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  color: var(--container-text);
 }
 
 .line-up-empty {
@@ -422,6 +484,9 @@ p, h3 {
     0 0 16px var(--accent),
     0 0 18px var(--accent),
     0 0 20px var(--accent);
+}
+.mission-container h2.mission-scramble {
+  white-space: pre-line;
 }
 
 .mission-image {
@@ -481,7 +546,7 @@ p, h3 {
   color: #222222;
   width: 100%;
   max-width: 100%;
-  padding: 0 2rem;
+  padding: 0 var(--side-padding);
   box-sizing: border-box;
   position: relative;
   z-index: 3;
@@ -503,7 +568,7 @@ p, h3 {
   display: flex;
   flex-direction: row;
   overflow-x: auto;
-  overflow-y: visible;
+  overflow-y: hidden;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -512,6 +577,7 @@ p, h3 {
   width: 100vw;
   box-sizing: border-box;
   margin: 0;
+  touch-action: pan-x;
 }
 .products-grid:active {
   cursor: grabbing;
@@ -593,7 +659,7 @@ p, h3 {
   }
   
   .products-grid {
-    padding: 0 1vw;
+    padding: 0 vw;
     gap: 1.5vw;
   }
   
@@ -688,6 +754,7 @@ p, h3 {
   font-family: 'OTNeueMontreal', sans-serif;
   font-weight: 100;
   font-size: 0.9rem; /* Adjusted font size for better legibility */
+  letter-spacing: 0.08em;
   color: var(--container-text); /* Changed to container-text for better contrast */
   background: rgba(0, 0, 0, 0.4); /* Added semi-transparent background */
   padding: 3px 8px; /* Added padding */
@@ -733,6 +800,16 @@ header {
   flex-direction: column;
   align-items: flex-start;
   padding: 1rem var(--side-padding);
+}
+
+/* Header: 16pt, title and tagline next to each other */
+header h1.header-corner {
+  position: relative;
+  z-index: 10;
+  margin: 0;
+  margin-left: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 header h1 {
@@ -913,6 +990,7 @@ header h1 {
   font-family: 'OTNeueMontreal', sans-serif; /* Use a consistent font */
   font-weight: 500; /* Medium weight for mobile links */
   font-size: 1.5rem; /* Larger font size for mobile links */
+  letter-spacing: 0.08em;
   color: var(--accent); /* Accent color for links */
   text-decoration: none;
   transition: color 0.2s ease;
@@ -965,17 +1043,8 @@ header h1 {
     box-sizing: border-box;
   }
 
-  /* Adjust h1 and tagline for mobile */
-  header h1 {
-    font-size: 1.8rem; /* Smaller title on mobile */
-    margin: 0; /* Remove margin-left to stay consistent */
-  }
-
-  .tagline {
-    font-size: 1.2rem; /* Smaller tagline on mobile */
-    margin: 0;
-    margin-top: 0.3rem;
-    transform: translateY(-0.5rem); /* Adjust vertical position */
+  header h1.header-corner {
+    font-size: 1.25rem;
   }
 
 
@@ -1034,6 +1103,7 @@ header h1 {
     text-align: left; /* Align text to the left */
     width: auto; /* Let content define width */
     font-size: 0.9rem; /* Slightly smaller font for title */
+    letter-spacing: 0.08em;
     color: var(--container-text); /* Use container text color for names */
     background: rgba(0, 0, 0, 0.4); /* Semi-transparent background for readability */
     padding: 3px 8px; /* Padding around the text */

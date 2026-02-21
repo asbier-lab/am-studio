@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { taglinePhrases } from './taglinePhrases';
 import './FloatingDialogue.css';
 
 const questions = [
@@ -18,6 +19,7 @@ const questions = [
   "DO YOU ALSO WORK FOR MONEY?",
   "WHAT WOULD HAPPEN IF WE DESIGNED FOR ABSENCE RATHER THAN PRESENCE?",
   "WHO BENEFITS WHEN THIS QUESTION GOES UNANSWERED?",
+  ...taglinePhrases,
 ];
 
 const FloatingDialogue = () => {

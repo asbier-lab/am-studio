@@ -1,7 +1,7 @@
 /* src/data/ProductDetail.css */
 
 .shop-detail-container {
-    padding: 20px;
+   
     max-width: 1400px;
     margin: 40px auto;
     text-align: center;
@@ -37,22 +37,23 @@
     max-width: 600px;
     text-align: left;
     padding-top: 40px;
+   
 }
 
 /* Adjustments for text elements */
 .shop-detail-text-content h2 {
-    font-size: 2.8em;
+    font-size: 1rem;
     margin: 0 0 20px 0;
     line-height: 1.2;
     font-family: 'OTNeueMontreal', sans-serif;
     font-weight: 600;
     color: var(--text);
+    
 }
 
 .shop-detail-price {
     font-size: 1.5em;
     font-style: italic;
-    margin-bottom: 20px;
     font-family: 'OTNeueMontreal', sans-serif;
     font-weight: 500;
     color: var(--text);
@@ -60,8 +61,7 @@
 
 .shop-detail-description {
     font-size: 1.1em;
-    line-height: 1.8;
-    margin-bottom: 20px;
+    line-height: 1.5;
     font-family: 'OTNeueMontreal', sans-serif;
     font-weight: 400;
     color: var(--text);
@@ -78,9 +78,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2em;
+    font-size: 1em;
     background-color: transparent;
-    color: #f55882;
+    color: #000000;
     border: none;
     cursor: pointer;
     z-index: 100;
@@ -146,18 +146,16 @@
 }
 
 .product-details h3 {
-    font-size: 2.8em;
+    font-size: 1.2rem;
     margin-top: 0;
-    margin-bottom: 15px;
     line-height: 1.2;
     font-family: 'OTNeueMontreal', sans-serif;
     font-weight: 600;
 }
 
 .product-details p {
-    font-size: 1.1em;
+    font-size: 0.6em;
     line-height: 1.8;
-    margin-bottom: 20px;
     font-family: 'OTNeueMontreal', sans-serif;
     font-weight: 800;
 }
